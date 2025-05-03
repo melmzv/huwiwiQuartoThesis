@@ -11,7 +11,7 @@ author:
 date: today
 date-format: MMM D, YYYY [\vspace{0cm}] # Adjusted the vertical space after the date from 1cm
 abstract: |
-  | This project uses the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) to provide infrastructure for open science-oriented empirical projects. Leveraging data from the CRSP and Compustat databases, alongside Worldscope and Datastream via WRDS, this repository showcases a reproducible workflow integrating Python scripts for data preparation, analysis, and visualization. Integrating multiple databases adds complexity, requiring a detailed understanding of their structures and careful scripting to extract, align, and analyze data effectively. The project replicates and extends Ball and Shivakumar (2008) to analyze the informativeness of quarterly earnings announcements and their contribution to share price movements, highlighting their critical role in investment decisions and impact on investors and analysts. Key tasks include replicating and comparing original results, extending the analysis to 2007–2023, and applying the methodology to a non-U.S. country. The project also documents research design choices, discusses variations between original and reproduced results, and provides insights into earnings informativeness across different timeframes and jurisdictions. Additionally, it sketches a research design for a non-archival study to evaluate the paper’s findings. This code base, adapted from TREAT, demonstrates how the template applies to the project and serves as a structured guide for reproducible empirical research in accounting.
+  | This project uses the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) to provide infrastructure for open science-oriented empirical projects. Leveraging data from the CRSP and Compustat databases, alongside Worldscope and Datastream via WRDS, this repository showcases a reproducible workflow integrating Python scripts for data preparation, analysis, and visualization. Integrating multiple databases adds complexity, requiring a detailed understanding of their structures and careful scripting to extract, align, and analyze data effectively. The project replicates and extends Ball and Shivakumar (2008) to analyze the informativeness of quarterly earnings announcements and their contribution to share price movements, highlighting their critical role in investment decisions and impact on investors and analysts. Key tasks include replicating and comparing original results, extending the analysis to 2007–2023, and applying the methodology to a non-U.S. country. The project also documents research design choices, discusses variations between original and reproduced results, and provides insights into earnings informativeness across different timeframes and jurisdictions. Additionally, it sketches a research design for a non-archival study to evaluate the paper’s findings. This code base, adapted from TREAT, demonstrates how the template applies to this project and serves as a structured guide for reproducible empirical research in accounting.
   <!--
   | \vspace{6cm} commenting away to decrease distance
   -->
@@ -130,55 +130,9 @@ The analysis step computes the BHR returns and performs a cross-sectional regres
 
 Since @ball_how_2008 do not explicitly describe their return computation, I compute Buy-and-Hold Returns (BHR) following the cumulative return formula as discussed in @gundersen_returns_2022. The BHR formula captures compounded returns over multiple days, reflecting the stock’s actual performance, which is used to replicate Table 1.
 
-The following formula is used to calculate calendar-year buy-and-hold returns, that measures the stock’s total performance over the year for each firm using daily CRSP returns:
-$$
-BHR_{\text{annual}} = \prod_{t=1}^{T} (1 + R_t) - 1, \quad \text{where } R_t \text{ is the daily return and } T \text{ is the total trading days in a year.}
-$$
-
-Specifically, buy-and-hold return over the three-day event window, that measures the stock’s reaction only to earnings news, is computed as given below:
-$$
-\begin{aligned}
-BHR_{\text{event}} &= (1 + R_{t_1}) (1 + R_{t_2}) \dots (1 + R_{t_T}) - 1
-\\
-\text{where } R_t & \text{ is the daily return and } T \text{ is the total trading days in a year.}
-\end{aligned}
-$$
-
-Next, perform cross-sectional regression for each firm/year - the main objective of @ball_how_2008's research:
-$$
-R_i(\text{annual}) = a_0 + a_1 R_i(\text{window1}) + a_2 R_i(\text{window2}) + a_3 R_i(\text{window3}) + a_4 R_i(\text{window4}) + \varepsilon_i
-$$
-
-The DV (BHR_annual) is the firm’s calendar-year buy-and-hold return from CRSP, aggregated over all trading days, while the IVs (BHR_event) are the four quarterly earnings-announcement returns, computed as three-day buy-and-hold returns (-1, 0, +1) around each earnings announcement date (RDQ) from Compustat. Additionally, I compute abnormal R^2 by benchmarking the adjusted  R^2  from annual regressions against the 4.8% baseline. This lays the ground for Table 2 replication.
-
 
 ## Results {#sec-results1}
 Since Tables and Figure replication not finished, this section presents only the original @fig-fig1_original.
-
-```{python}
-#| label: fig-fig1_original
-#| fig-cap: "Original Figure 1 from Ball and Shivakumar (2008)"
-#| echo: false
-
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-
-img = mpimg.imread("fig1_original.png")
-plt.figure(figsize=(12, 20))
-plt.imshow(img)
-plt.axis("off")
-plt.show()
-
-# used in AssI Solution, I use knitr for availability of cross-referencing.
-#| label: fig1_original_png
-#| fig-cap: "Original Figure 1 from Ball and Shivakumar (2008)"
-#| echo: false
-
-#from IPython.display import Image
-
-#Image(filename="fig1_original.png")
-#
-```
 
 
 # Task 2 - Extending the Analysis to 2007–2023 {#sec-task2}
@@ -242,23 +196,6 @@ Comparing the replication results with those from @ball_how_2008 (see @fig-fig1_
 
 The post-2000 period in the replication shows more inconsistent abnormal  R^2  values, possibly reflecting evolving market structures, shifts in disclosure practices, and increased earnings informativeness following regulatory changes (e.g., IFRS adoption, post-SOX adjustments, different financial market structure). The pronounced fluctuations could also be driven by global financial crisis, Canada's higher market concentration, fewer publicly traded firms, and potential regulatory differences, which may affect earnings informativeness and stock return patterns. The variability in slope coefficients further suggests that earnings announcements’ impact on stock returns is less stable than in prior decades, potentially due to differences in investor response.
 
-```{python}
-#| label: fig-abnormal-r2
-#| fig-cap: "Replicated Figure 1: Abnormal Adjusted R² Values and Slope Coefficients from Annual Regressions"
-#| fig-align: center
-#| echo: false
-
-import pickle
-import matplotlib.pyplot as plt
-
-# Load the figure from the pickle file
-with open('../output/figure1_replication.pickle', 'rb') as f:
-    fig = pickle.load(f)
-
-# Render the figure explicitly
-plt.figure(fig.number)
-plt.show()
-```
 
 # Task 4 - Research Design for a Non-Archival Study {#sec-task4}
 
