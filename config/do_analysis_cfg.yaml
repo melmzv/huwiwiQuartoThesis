@@ -10,8 +10,8 @@ summary_statistics_csv: "output/summary_statistics.csv"
 
 # --- Output: Regression Results ---
 regression_results_csv: "output/regression_results.csv" 
-regression_results_plot: "output/regression_plot.png" # plt show
+regression_results_plot: "output/regression_plot.png"
 
 # --- Output: Figure 1 Replication ---
-figure1_save_path: "output/figure1_replication.png"  # Save figure as image
-figure1_pickle_path: "output/figure1_replication.pickle"  # Save figure as pickle
+figure1_save_path: "output/figure1_replication.png"
+figure1_pickle_path: "output/figure1_replication.pickle"

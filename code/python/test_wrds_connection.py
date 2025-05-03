@@ -1,6 +1,5 @@
 import os
-import dotenv
-import wrds
+
 
 def load_wrds_credentials():
     '''
