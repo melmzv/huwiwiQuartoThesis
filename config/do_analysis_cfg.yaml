@@ -1,4 +1,3 @@
-## Task 3 WS/Datastream
 # --- Input: BHR Computation ---
 bhr_event_output_csv: "data/generated/bhr_event_results.csv"
 bhr_event_output_parquet: "data/generated/bhr_event_results.parquet"

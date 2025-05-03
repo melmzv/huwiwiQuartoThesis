@@ -1,10 +1,8 @@
-## Task 1
 # --- Input: Pulled Data ---
 crsp_save_path_csv: 'data/pulled/crsp_daily_stock_returns.csv'
 fundq_save_path_csv: 'data/pulled/compustat_fundq_1972_2023.csv'
 
 
-## Task 3 WS/Datastream
 # --- Input: Pulled Data ---
 worldscope_sample_save_path_csv: 'data/pulled/wrds_ws_stock.csv'
 datastream_sample_save_path_csv: 'data/pulled/wrds_ds2dsf.csv'
