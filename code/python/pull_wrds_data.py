@@ -7,7 +7,7 @@
 import os
 from getpass import getpass
 import dotenv
-cc
+
 import pandas as pd
 from utils import read_config, setup_logging
 import wrds
