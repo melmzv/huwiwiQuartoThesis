@@ -1,0 +1,18 @@
+## Task 3 WS/Datastream
+# --- Input: BHR Computation ---
+bhr_event_output_csv: "data/generated/bhr_event_results.csv"
+bhr_event_output_parquet: "data/generated/bhr_event_results.parquet"
+
+bhr_annual_output_csv: "data/generated/bhr_annual_results.csv"
+bhr_annual_output_parquet: "data/generated/bhr_annual_results.parquet"
+
+# --- Output: Summary Statistics ---
+summary_statistics_csv: "output/summary_statistics.csv"
+
+# --- Output: Regression Results ---
+regression_results_csv: "output/regression_results.csv" 
+regression_results_plot: "output/regression_plot.png" # plt show
+
+# --- Output: Figure 1 Replication ---
+figure1_save_path: "output/figure1_replication.png"  # Save figure as image
+figure1_pickle_path: "output/figure1_replication.pickle"  # Save figure as pickle
