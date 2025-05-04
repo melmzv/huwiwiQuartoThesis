@@ -3,7 +3,7 @@ title: |
   | Earnings Management and Investor Protection:
   | Accounting Reading Group
 author: "Mel Mzv"
-institute: "Humboldt-Universität zu Berlin – Summer 2024"
+institute: "Humboldt-Universität zu Berlin – Summer 2025"
 date: today
 fontsize: "9pt"
 pdf-engine: xelatex # pdflatex creates rastered fonts
@@ -74,6 +74,8 @@ def prep_latex_table(df, caption=None, label=None, fontsize='\\fontsize{11}{13}\
 ```
 
 # Motivation
+
+This presentation template serves as a standardized framework for thesis works at WiWi faculty, promoting consistency and professionalism in academic presentations.
 
 ## Understanding Systematic Differences in Earnings Management across Countries
 
