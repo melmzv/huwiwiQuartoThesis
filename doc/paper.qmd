@@ -55,6 +55,11 @@ header-includes:
 
 \pagebreak
 
+# Acknowledgements
+
+I would like to thank my professors, colleagues, and friends for their support and insights throughout the preparation of this thesis. Special thanks go to [Name], whose guidance was invaluable during the project.
+
+\pagebreak
 
 # List of Abbreviations
 \setlength{\parindent}{0em}
