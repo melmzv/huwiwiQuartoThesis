@@ -1,7 +1,7 @@
---- ## Not rendered in this project; to be used as draft
+--- ## Draft of a presentation - include it in Makefile if you run it apart paper.qmd too
 title: |
   | Earnings Management and Investor Protection:
-  | Accounting Reading Group - Assignment III
+  | Accounting Reading Group
 author: "Mel Mzv"
 institute: "Humboldt-Universität zu Berlin – Summer 2024"
 date: today

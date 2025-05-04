@@ -12,6 +12,6 @@ summary_statistics_csv: "output/summary_statistics.csv"
 regression_results_csv: "output/regression_results.csv" 
 regression_results_plot: "output/regression_plot.png"
 
-# --- Output: Figure 1 Replication ---
+# --- Output: Figure Replication ---
 figure1_save_path: "output/figure1_replication.png"
 figure1_pickle_path: "output/figure1_replication.pickle"
