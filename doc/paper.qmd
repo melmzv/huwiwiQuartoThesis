@@ -1,56 +1,41 @@
 ---
-title: |
-  | How Much New Information Is There in Earnings?
-  | Corporate Decision-Making and Quantitative Analysis
-  | Summer 2025 - Individual Report\vspace{1cm}
-author:
-  - name: Max Mustermann
-    email: m@student.hu-berlin.de
-    affiliations:
-      - Humboldt-Universität zu Berlin  
-date: today
-date-format: MMM D, YYYY [\vspace{0cm}] # Adjusted the vertical space after the date from 1cm
-abstract: |
-  | This project uses the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) to provide infrastructure for open science-oriented empirical projects. Leveraging data from the CRSP and Compustat databases, alongside Worldscope and Datastream via WRDS, this repository showcases a reproducible workflow integrating Python scripts for data preparation, analysis, and visualization. Integrating multiple databases adds complexity, requiring a detailed understanding of their structures and careful scripting to extract, align, and analyze data effectively. The project replicates and extends Ball and Shivakumar (2008) to analyze the informativeness of quarterly earnings announcements and their contribution to share price movements, highlighting their critical role in investment decisions and impact on investors and analysts. Key tasks include replicating and comparing original results, extending the analysis to 2007–2023, and applying the methodology to a non-U.S. country. The project also documents research design choices, discusses variations between original and reproduced results, and provides insights into earnings informativeness across different timeframes and jurisdictions. Additionally, it sketches a research design for a non-archival study to evaluate the paper’s findings. This code base, adapted from TREAT, demonstrates how the template applies to this project and serves as a structured guide for reproducible empirical research in accounting.
-  <!--
-  | \vspace{6cm} commenting away to decrease distance
-  -->
-
-bibliography: references.bib
-biblio-style: apsr
 format:
   pdf:
     documentclass: article
     number-sections: true
     toc: true
-    lof: true  # Enables List of Figures
-    lot: true  # Enables List of Tables
-    include-before-body: 
-    - acknowledgements.tex
-    - abstract.tex
-    - abbreviations.tex
+    lof: true
+    lot: true
+    include-before-body:
+      - titlepage.tex
+      - acknowledgements.tex
+      - abstract.tex
+      - abbreviations.tex
     include-after-body:
       - declaration.tex
+
+bibliography: references.bib
+biblio-style: apsr
 
 fig_caption: yes
 fontsize: 11pt
 ident: yes
 always_allow_html: yes
-number-sections: true 
+number-sections: true
 header-includes:
-  - \usepackage[nolists]{endfloat}    
+  - \usepackage[nolists]{endfloat}
   - \usepackage{setspace}\doublespacing
   - \setlength{\parindent}{4em}
   - \setlength{\parskip}{0em}
   - \usepackage[hang,flushmargin]{footmisc}
-  - \usepackage{caption} 
+  - \usepackage{caption}
   - \captionsetup[table]{skip=24pt,font=bf}
   - \usepackage{array}
   - \usepackage{threeparttable}
   - \usepackage{adjustbox}
   - \usepackage{graphicx}
   - \usepackage{csquotes}
-  - \usepackage{indentfirst}  # Added this line to ensure the first paragraph is indented for better readability
+  - \usepackage{indentfirst}
   - \usepackage[margin=1in]{geometry}
 ---
 
@@ -64,8 +49,6 @@ This project serves as a template-based example for conducting and documenting r
 
 Following prior assignments on audit market concentration and financial reporting effects (e.g., @graham_economic_2005), this project focuses on the informativeness of quarterly earnings announcements. Specifically, it replicates and extends the study by @ball_how_2008, which examines whether earnings announcements contribute new information to markets or merely confirm what is already known—contributing to the long-standing discussion on market efficiency and the valuation versus contracting roles of accounting.
 
-Using updated U.S. data and applying the methodology to a second country, this thesis combines multiple WRDS datasets and applies an event-study design to evaluate how much of the annual stock return variation can be explained by earnings announcement windows. The approach is designed to foster transparent research workflows, with a fully scripted pipeline for data pulling, preparation, analysis, and reporting.
-
 The paper is organized into four main parts. In @sec-task1, I replicate the core findings of the original study using U.S. data from 1972 to 2006. In @sec-task2, I apply the same methodology to U.S. data from 2007 to 2023 to explore temporal robustness. In @sec-task3, I generalize the findings to a non-U.S. country to assess cross-country variation and data integration requirements. Finally, @sec-task4 sketches a non-archival research design using a survey-based approach to evaluate the underlying assumptions of the original paper. The thesis concludes with reflections and key insights in @sec-conclusion.
 
 
@@ -76,7 +59,7 @@ Task 1 replicates key tables and figures from @ball_how_2008 using daily US stoc
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions1}
 In line with @ball_how_2008, this replication examines U.S. earnings announcements and stock returns from 1972 to 2006, following the original study’s sample design, event window (-1 to +1), and return computations. Unlike the original, I omit analyst expectations, focusing solely on returns and announcement dates for simplicity.
 
-To address gaps in methodological detail, several assumptions are applied. Event windows follow CRSP trading calendar conventions, shifting dates when earnings fall on non-trading days [@center_for_research_in_security_prices_crsp_crsp_2024]. While @ball_how_2008 require a minimum of 240 trading days, I relax this constraint, as per course guidance, resulting in a broader sample. All firms in Compustat meeting the quarterly announcement and return data criteria are included, regardless of activity status. I use PERMNO to uniquely track securities, avoiding aggregation across multiple share classes [@gow_empirical_2025]. The CRSP/Compustat Merged (CCM) database is used to link identifiers, noting that differences from the original study may arise due to updated data (WRDS version: January 2025). As in @ball_how_2008, the analysis is return-based (RET in CRSP), excluding bid-ask pricing. Earnings are grouped by announcement date (RDQ), not fiscal period, to align directly with CRSP trading dates.
+To address gaps in methodological detail, several assumptions are applied. Event windows follow CRSP trading calendar conventions, shifting dates when earnings fall on non-trading days [@center_for_research_in_security_prices_crsp_crsp_2024]. While @ball_how_2008 require a minimum of 240 trading days, I relax this constraint, as per course guidance, resulting in a broader sample. All firms in Compustat meeting the quarterly announcement and return data criteria are included, regardless of activity status. The CRSP/Compustat Merged (CCM) database is used to link identifiers, noting that differences from the original study may arise due to updated data (WRDS version: January 2025). As in @ball_how_2008, the analysis is return-based (RET in CRSP), excluding bid-ask pricing. Earnings are grouped by announcement date (RDQ), not fiscal period, to align directly with CRSP trading dates.
 
 These assumptions, together with the procedural details in @sec-replication_steps1, guide the replication of @ball_how_2008 and ensure transparency in design and implementation.
 

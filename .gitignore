@@ -164,3 +164,4 @@ cython_debug/
 
 # Config file - potentially containing private data
 secrets.env
+/.luarc.json
