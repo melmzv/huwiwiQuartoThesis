@@ -26,8 +26,9 @@ format:
     lof: true  # Enables List of Figures
     lot: true  # Enables List of Tables
     include-before-body: 
-      text: |
-        \pagenumbering{Roman}
+    - acknowledgements.tex
+    - abstract.tex
+    - abbreviations.tex
     include-after-body:
       - declaration.tex
 
@@ -55,25 +56,7 @@ header-includes:
 
 \pagebreak
 
-# Acknowledgements
 
-I would like to thank my professors, colleagues, and friends for their support and insights throughout the preparation of this thesis. Special thanks go to [Name], whose guidance was invaluable during the project.
-
-\pagebreak
-
-# List of Abbreviations
-\setlength{\parindent}{0em}
-**BHR**: Buy-and-Hold Returns   
-**CRSP**: Center for Research in Security Prices  
-**DS**: Datastream  
-**IDE**: Integrated Development Environment  
-**TREAT**: TRR 266 Template for Reproducible Empirical Accounting Research  
-**WRDS**: Wharton Research Data Services  
-**WSCP**: Worldscope  
-
-\setlength{\parindent}{4em} 
-
-\pagebreak
 \pagenumbering{arabic}
 
 # Introduction {#sec-introduction}
