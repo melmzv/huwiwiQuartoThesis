@@ -4,7 +4,7 @@ title: |
   | Corporate Decision-Making and Quantitative Analysis
   | Summer 2025 - Individual Report\vspace{1cm}
 author:
-  - name: Mel Mzv
+  - name: Max Mustermann
     email: m@student.hu-berlin.de
     affiliations:
       - Humboldt-Universität zu Berlin  
@@ -25,6 +25,12 @@ format:
     toc: true
     lof: true  # Enables List of Figures
     lot: true  # Enables List of Tables
+    include-before-body: 
+      text: |
+        \pagenumbering{Roman}
+    include-after-body:
+      - declaration.tex
+
 fig_caption: yes
 fontsize: 11pt
 ident: yes
@@ -63,6 +69,7 @@ header-includes:
 \setlength{\parindent}{4em} 
 
 \pagebreak
+\pagenumbering{arabic}
 
 # Introduction {#sec-introduction}
 This project serves as a template-based example for conducting and documenting reproducible empirical accounting research. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis course, as well as the Accounting Reading Group course, which explored archival and non-archival research methods. To support future empirical thesis projects, this template was adapted and further developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group.
