@@ -41,7 +41,7 @@ header-includes:
   - \fancyhf{}  % clear headers/footers
   - \renewcommand{\headrulewidth}{0pt}
   - \renewcommand{\footrulewidth}{0pt}
-  - \fancyfoot[R]{\thepage}  % right-aligned footer
+  - \fancyfoot[R]{\makebox[0pt][r]{\thepage\hspace{1in}}} % right-aligned footer
 ---
 
 \pagebreak
