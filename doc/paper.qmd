@@ -8,9 +8,7 @@ format:
     lot: true
     include-before-body:
       - titlepage.tex
-      - acknowledgements.tex
-      - abstract.tex
-      - abbreviations.tex
+      - preamble.tex  # This sets Roman page numbering before the TOC
     include-after-body:
       - declaration.tex
 
@@ -18,13 +16,13 @@ bibliography: references.bib
 biblio-style: apsr
 
 fig_caption: yes
-fontsize: 11pt
+fontsize: 12pt
 ident: yes
 always_allow_html: yes
 number-sections: true
 header-includes:
   - \usepackage[nolists]{endfloat}
-  - \usepackage{setspace}\doublespacing
+  - \usepackage{setspace}\onehalfspacing
   - \setlength{\parindent}{4em}
   - \setlength{\parskip}{0em}
   - \usepackage[hang,flushmargin]{footmisc}
@@ -37,12 +35,38 @@ header-includes:
   - \usepackage{csquotes}
   - \usepackage{indentfirst}
   - \usepackage[margin=1in]{geometry}
+  - \usepackage{ragged2e} #for declaration intend
 ---
 
 \pagebreak
 
 
+\clearpage
+# Acknowledgements {-}
+I would like to thank my professors, colleagues, and friends for their support and insights throughout the preparation of this thesis. Special thanks go to [Name], whose guidance was invaluable during the project.
+
+\clearpage
+
+# Abstract {-}
+This thesis examines how much new information is conveyed in quarterly earnings announcements, replicating and extending the study by Ball and Shivakumar (2008). Using a reproducible workflow based on the TRR 266 Template, I analyze U.S. and Canadian data from 1972 to 2023, applying an event-study design to assess the explanatory power of earnings windows on annual stock returns. The findings show that earnings informativeness varies across time and jurisdictions, with evidence suggesting institutional factors influence market reactions. A non-archival survey design is also proposed to explore investor perceptions, enriching the archival analysis with complementary behavioral insights.
+
+\newpage
+
+# List of Abbreviations {-}
+\setlength{\parindent}{0em}
+**BHR**: Buy-and-Hold Returns   
+**CRSP**: Center for Research in Security Prices  
+**DS**: Datastream  
+**IDE**: Integrated Development Environment  
+**TREAT**: TRR 266 Template for Reproducible Empirical Accounting Research  
+**WRDS**: Wharton Research Data Services  
+**WSCP**: Worldscope  
+
+\newpage
 \pagenumbering{arabic}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{0em}
+\newgeometry{left=6cm, right=1.5cm, top=2cm, bottom=2cm}
 
 # Introduction {#sec-introduction}
 This project serves as a template-based example for conducting and documenting reproducible empirical accounting research. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis course, as well as the Accounting Reading Group course, which explored archival and non-archival research methods. To support future empirical thesis projects, this template was adapted and further developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group.
@@ -181,6 +205,7 @@ Beyond replication, this project integrates programming, data processing, and vi
 
 \pagebreak
 
+\restoregeometry
 \setcounter{table}{0}
 \renewcommand{\thetable}{\arabic{table}}
 
