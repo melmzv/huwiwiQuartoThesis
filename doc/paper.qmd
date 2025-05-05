@@ -76,14 +76,14 @@ Following prior assignments on audit market concentration and financial reportin
 The paper is organized into four main parts. In @sec-task1, I replicate the core findings of the original study using U.S. data from 1972 to 2006. In @sec-task2, I apply the same methodology to U.S. data from 2007 to 2023 to explore temporal robustness. In @sec-task3, I generalize the findings to a non-U.S. country to assess cross-country variation and data integration requirements. Finally, @sec-task4 sketches a non-archival research design using a survey-based approach to evaluate the underlying assumptions of the original paper. The thesis concludes with reflections and key insights in @sec-conclusion.
 
 
-# Task 1 - Replication of Key Tables and Figures {#sec-task1}
-Task 1 replicates key tables and figures from @ball_how_2008 using daily US stock return data (1972–2006) to establish baseline results. By reconstructing Table 1 (Panel A), Table 2, and Figure 1, it evaluates the robustness of the original findings and highlights any discrepancies. Daily CRSP data ensures accurate measurement of stock reactions around earnings announcements. Replication results are discussed in @sec-results1, with extended analysis in @sec-task2.
+# Replication of Key Tables and Figures {#sec-task1}
+This section replicates key tables and figures from @ball_how_2008 using daily US stock return data (1972–2006) to establish baseline results. By reconstructing Table 1 (Panel A), Table 2, and Figure 1, it evaluates the robustness of the original findings and highlights any discrepancies. Daily CRSP data ensures accurate measurement of stock reactions around earnings announcements. Replication results are discussed in @sec-results1, with extended analysis in @sec-task2.
 
 
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions1}
 In line with @ball_how_2008, this replication examines U.S. earnings announcements and stock returns from 1972 to 2006, following the original study’s sample design, event window (-1 to +1), and return computations. Unlike the original, I omit analyst expectations, focusing solely on returns and announcement dates for simplicity.
 
-To address gaps in methodological detail, several assumptions are applied. Event windows follow CRSP trading calendar conventions, shifting dates when earnings fall on non-trading days [@center_for_research_in_security_prices_crsp_crsp_2024]. While @ball_how_2008 require a minimum of 240 trading days, I relax this constraint, as per course guidance, resulting in a broader sample. All firms in Compustat meeting the quarterly announcement and return data criteria are included, regardless of activity status. The CRSP/Compustat Merged (CCM) database is used to link identifiers, noting that differences from the original study may arise due to updated data (WRDS version: January 2025). As in @ball_how_2008, the analysis is return-based (RET in CRSP), excluding bid-ask pricing. Earnings are grouped by announcement date (RDQ), not fiscal period, to align directly with CRSP trading dates.
+To address gaps in methodological detail, several assumptions are applied. Event windows follow CRSP trading calendar conventions, shifting dates when earnings fall on non-trading days [@center_for_research_in_security_prices_crsp_crsp_2024]. While @ball_how_2008 require a minimum of 240 trading days, I relax this constraint, as per course guidance, resulting in a broader sample. All firms in Compustat meeting the quarterly announcement and return data criteria are included, regardless of activity status. The CRSP/Compustat Merged (CCM) database is used to link identifiers, noting that differences from the original study may arise due to updated data (WRDS version: January 2025). As in @ball_how_2008, the analysis is return-based (`ret` in CRSP), excluding bid-ask pricing. Earnings are grouped by announcement date (`rdq`), not fiscal period, to align directly with CRSP trading dates.
 
 These assumptions, together with the procedural details in @sec-replication_steps1, guide the replication of @ball_how_2008 and ensure transparency in design and implementation.
 
@@ -105,11 +105,12 @@ BHRs are computed using the cumulative return formula per @gundersen_returns_202
 
 
 ## Results {#sec-results1}
-This section presents the replication results.
+This section presents the replication results, comparing them with the original @ by @ball_how_2008.
 
 
-# Task 2 - Extending the Analysis to 2007–2023 {#sec-task2}
-This section extends the analysis to 2007–2023, a period shaped by events like the 2008 financial crisis and the COVID-19 pandemic. Although the programming involves only a sample period update, the task requires thoughtful economic interpretation of how structural shifts and evolving market conditions may have affected the informativeness of earnings announcements.
+
+# Extending the Analysis to 2007–2023 {#sec-task2}
+This section extends the analysis to 2007–2023, a period shaped by events like the 2008 financial crisis and the COVID-19 pandemic. Although the programming involves only a sample period update, the process requires thoughtful economic interpretation of how structural shifts and evolving market conditions may have affected the informativeness of earnings announcements.
 
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions2}
 
@@ -121,11 +122,11 @@ The pull, preparation, and analysis step would remain the same as designed in @s
 ## Results {#sec-results2}
 Shifting the sample to 2007–2023 introduces potential changes in earnings announcement informativeness driven by key economic and regulatory events. The 2008 financial crisis and the 2020 COVID-19 pandemic likely heightened market uncertainty, increasing reliance on earnings disclosures to assess firm stability. Moreover, Regulation (EU) No 537/2014 may have enhanced financial reporting transparency and audit quality in EU countries, potentially affecting how earnings news is reflected in stock prices and contributing to cross-country variation in informativeness.
 
-# Task 3 - Cross-Country Replication {#sec-task3}
-Task 3 generalizes the analysis to a non-U.S. market by replicating Figure 1 using 1972–2023 data from Canada. This involves aligning CRSP/Compustat variables with Worldscope and Datastream equivalents while accounting for differences in reporting standards, market liquidity, and institutional context. Though the core methodology is retained, adapting it to international data demands careful mapping and interpretation.
+# Cross-Country Replication {#sec-task3}
+This section generalizes the analysis to a non-U.S. market by replicating Figure 1 using 1972–2023 data from Canada. This involves aligning CRSP/Compustat variables with Worldscope and Datastream equivalents while accounting for differences in reporting standards, market liquidity, and institutional context. Though the core methodology is retained, adapting it to international data demands careful mapping and interpretation.
 
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions3}
-Since Task 3 applies a generalization and extension approach to a non-U.S. market, it requires adapting the methodology to alternative databases and market structures. Like in the original study, no analyst forecasts or earnings surprises are used—only stock returns and earnings announcement dates are required. Canada was selected for its comparable quarterly reporting frequency and institutional similarity to the U.S., making it a suitable choice for cross-country replication [@short_short_2025]. Canadian firms reporting under U.S. GAAP further enhance comparability.
+Since this secition applies a generalization and extension approach to a non-U.S. market, it requires adapting the methodology to alternative databases and market structures. Like in the original study, no analyst forecasts or earnings surprises are used—only stock returns and earnings announcement dates are required. Canada was selected for its comparable quarterly reporting frequency and institutional similarity to the U.S., making it a suitable choice for cross-country replication [@short_short_2025]. Canadian firms reporting under U.S. GAAP further enhance comparability.
 
 To address database-specific issues not covered in @sec-research_design_assumptions1, I make the following adjustments: First, Worldscope/Datastream workflows are kept separate from CRSP/Compustat to prevent interference and facilitate debugging, given the scale of data involved. Second, I exclude fiscal-year-end-based subgroup analysis (Table 2 Panels C–D), as Figure 1 uses the full sample without splitting by fiscal period. Third, I use Worldscope items 5901–5904 to define earnings dates, though limited availability before 1992 may reduce the sample size [@thomson_financial_worldscope_2007, p.281]. Fourth, differences in update frequency between quarterly Worldscope and weekly Datastream can lead to timing mismatches when aligning fundamentals and returns. Fifth, I rely on Datastream’s `ret` variable for percentage returns, ignoring bid/ask spreads. Finally, currency effects are ignored, as percentage returns are unaffected by currency denomination.
 
@@ -134,7 +135,7 @@ To address database-specific issues not covered in @sec-research_design_assumpti
 The process is same as in @sec-task1.
 
 **Step 1: Pulling the Data and Managing the Databases**  
-Following @dai_research_2021, I link Worldscope and Datastream using code and infocode. Since Worldscope’s year_ starts in 1980 [@wharton_research_data_services_worldscope_2025], Datastream data is also restricted to 1980–2023 to ensure consistent coverage. I extract quarterly earnings announcement dates (items 5901–5904) from Worldscope and daily stock returns from Datastream, focusing on Canadian firms and filtering for common equity (typecode = EQ). This step yields three datasets: 27.9M (Datastream), 77.9K (link table), and 1.94M (Worldscope) observations.
+Following @dai_research_2021, I link Worldscope and Datastream using code and infocode. Since Worldscope’s `year_` starts in 1980 [@wharton_research_data_services_worldscope_2025], Datastream data is also restricted to 1980–2023 to ensure consistent coverage. I extract quarterly earnings announcement dates (items 5901–5904) from Worldscope and daily stock returns from Datastream, focusing on Canadian firms and filtering for common equity (typecode = EQ). This step yields three datasets: 27.9M (Datastream), 77.9K (link table), and 1.94M (Worldscope) observations.
 
 
 **Step 2: Data Preparation**  
@@ -142,16 +143,16 @@ Worldscope is first merged with the link table via code, producing 747,760 rows.
 
 
 **Step 3: Analysis Implementation and Reproduction of Tables and Figure**  
-The analysis replicates Table 1 (summary statistics), Table 2 (yearly regressions), and Figure 1 (Abnormal R² and slope trends). Using `BHR_3day` and `BHR_Annual`, I run yearly regressions of annual returns on earnings-window returns and compute Abnormal R² (adjusted R² – 4.8%), handling missing values appropriately. The resulting trends are plotted and saved as both PNG and pickle files for use in the paper.
+The analysis replicates Table 1 (summary statistics), Table 2 (yearly regressions), and Figure 1 (Abnormal R² and slope trends). Using `BHR_3day` and `BHR_Annual`, I run yearly regressions of annual returns on earnings-window returns and compute Abnormal R² (adjusted R² – 4.8%), handling missing values appropriately. 
 
 
 ## Results {#sec-results3}
 Comparing the replication results with those from @ball_how_2008 reveals both similarities and discrepancies. The original figure shows a general upward trend in abnormal  R² , peaking in the early 2000s, whereas the replicated figure captures greater volatility in the later years (2010–2023). Additionally, Ball’s figure suggests a smoother long-term dynamic, while the replication exhibits more pronounced fluctuations, particularly post-2010. Panel B in replicated figure exhibits higher volatility and larger coefficient magnitudes, suggesting increased earnings informativeness post-2006, while Ball’s original figure has more stable and lower-magnitude coefficients.
 
-The post-2000 period in the replication shows more inconsistent abnormal  R^2  values, possibly reflecting evolving market structures, shifts in disclosure practices, and increased earnings informativeness following regulatory changes (e.g., IFRS adoption, post-SOX adjustments, different financial market structure). The pronounced fluctuations could also be driven by global financial crisis, Canada's higher market concentration, fewer publicly traded firms, and potential regulatory differences, which may affect earnings informativeness and stock return patterns. The variability in slope coefficients further suggests that earnings announcements’ impact on stock returns is less stable than in prior decades, potentially due to differences in investor response.
+The post-2000 period in the replication shows more inconsistent abnormal  R²  values, possibly reflecting evolving market structures, shifts in disclosure practices, and increased earnings informativeness following regulatory changes (e.g., IFRS adoption, post-SOX adjustments, different financial market structure). The pronounced fluctuations could also be driven by global financial crisis, Canada's higher market concentration, fewer publicly traded firms, and potential regulatory differences, which may affect earnings informativeness and stock return patterns. The variability in slope coefficients further suggests that earnings announcements’ impact on stock returns is less stable than in prior decades, potentially due to differences in investor response.
 
 
-# Task 4 - Research Design for a Non-Archival Study {#sec-task4}
+# Research Design for a Non-Archival Study {#sec-task4}
 
 To extend the analysis beyond archival methods, this section proposes a survey to assess whether investors perceive earnings announcements as informative or merely confirmatory, following the triangulation principle in empirical research [@bloomfield_gathering_2016]. While @ball_how_2008 measure market reactions via stock returns, surveys can capture investor beliefs directly, offering complementary evidence on earnings informativeness.
 
@@ -198,9 +199,7 @@ Follow-up interviews with selected respondents will add qualitative depth, enabl
 3. Do you use earnings announcements differently depending on market conditions (e.g., economic downturn vs. growth periods)?
 
 # Conclusion {#sec-conclusion}
-This thesis template demonstrates how the TRR 266 framework can be applied to structure a reproducible and transparent empirical accounting study. Using Quarto proved to be a particularly effective and user-friendly solution for structuring and rendering the thesis. It facilitates seamless integration of code, results, and narrative, making it an ideal tool for students at the Institute of Accounting and Auditing or the Finance Group at the School of Business and Economics, HU Berlin.
-
-Beyond replication, this project integrates programming, data processing, and visualization skills, offering a foundation for future extensions—whether through archival analysis or survey-based designs. As an open and modular template, this repository is designed to support ongoing student and academic work in empirical research. Thanks for reading!
+This thesis template demonstrates how the TRR 266 framework can be applied to structure a reproducible and transparent empirical accounting study. Using Quarto proved to be a particularly effective and user-friendly solution for structuring and rendering the thesis. It facilitates seamless integration of code, results, and narrative, making it an ideal tool for students at the Institute of Accounting and Auditing or the Finance Group at the School of Business and Economics, HU Berlin. Thanks for reading!
 
 
 \pagebreak
