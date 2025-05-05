@@ -1,8 +1,8 @@
 --- ## Draft of a presentation - include it in Makefile if you run it apart paper.qmd too
 title: |
-  | Earnings Management and Investor Protection:
-  | Accounting Reading Group
-author: "Mel Mzv"
+  | How Much New Information Is There in Earnings?
+  | Evidence from Earnings Releases in the U.S. and Canada
+author: "Max Mustermann"
 institute: "Humboldt-Universität zu Berlin – Summer 2025"
 date: today
 fontsize: "9pt"
