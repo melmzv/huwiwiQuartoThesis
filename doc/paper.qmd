@@ -105,8 +105,16 @@ BHRs are computed using the cumulative return formula per @gundersen_returns_202
 
 
 ## Results {#sec-results1}
-This section presents the replication results, comparing them with the original @ by @ball_how_2008.
+This section presents the replication results, comparing them with the original \ref{fig:fig1_original} by @ball_how_2008.
 
+```{=latex}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig1_original.pdf}
+  \caption{Original Figure 1 from Ball and Shivakumar (2008)}
+  \label{fig:fig1_original}
+\end{figure}
+```
 
 
 # Extending the Analysis to 2007–2023 {#sec-task2}
