@@ -36,6 +36,12 @@ header-includes:
   - \usepackage{indentfirst}
   - \usepackage[margin=1in]{geometry}
   - \usepackage{ragged2e} #for declaration intend
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhf{}  % clear headers/footers
+  - \renewcommand{\headrulewidth}{0pt}
+  - \renewcommand{\footrulewidth}{0pt}
+  - \fancyfoot[R]{\thepage}  % right-aligned footer
 ---
 
 \pagebreak
