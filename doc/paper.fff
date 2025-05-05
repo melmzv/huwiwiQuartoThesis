@@ -1,6 +1,12 @@
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.95\textwidth]{fig1_original.pdf}
-  \caption{Original Figure 1 from Ball and Shivakumar (2008)}
-  \label{fig:fig1_original}
+\begin{figure}
+
+\centering{
+
+\includegraphics{fig1_original.pdf}
+
+}
+
+\caption{\label{fig-fig1_original}Original Figure 1 from Ball and
+Shivakumar (2008)}
+
 \end{figure}

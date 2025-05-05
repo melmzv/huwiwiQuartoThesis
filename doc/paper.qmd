@@ -105,15 +105,14 @@ BHRs are computed using the cumulative return formula per @gundersen_returns_202
 
 
 ## Results {#sec-results1}
-This section presents the replication results, comparing them with the original \ref{fig:fig1_original} by @ball_how_2008.
+This section presents the replication results, comparing them with the original @fig-fig1_original by @ball_how_2008.
 
-```{=latex}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.95\textwidth]{fig1_original.pdf}
-  \caption{Original Figure 1 from Ball and Shivakumar (2008)}
-  \label{fig:fig1_original}
-\end{figure}
+```{r}
+#| label: fig-fig1_original
+#| fig-cap: "Original Figure 1 from Ball and Shivakumar (2008)"
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("fig1_original.pdf")
 ```
 
 
@@ -128,7 +127,7 @@ Assumptions from @sec-research_design_assumptions1 still hold.
 The pull, preparation, and analysis step would remain the same as designed in @sec-replication_steps1 with the only change in data range.
 
 ## Results {#sec-results2}
-Shifting the sample to 2007–2023 introduces potential changes in earnings announcement informativeness driven by key economic and regulatory events. The 2008 financial crisis and the 2020 COVID-19 pandemic likely heightened market uncertainty, increasing reliance on earnings disclosures to assess firm stability. Moreover, Regulation (EU) No 537/2014 may have enhanced financial reporting transparency and audit quality in EU countries, potentially affecting how earnings news is reflected in stock prices and contributing to cross-country variation in informativeness.
+Shifting the sample to 2007–2023 introduces potential changes in earnings announcement informativeness driven by key economic events. The 2008 financial crisis and the 2020 COVID-19 pandemic likely heightened market uncertainty, increasing reliance on earnings disclosures to assess firm stability. These developments may have influenced how earnings news is reflected in stock prices and contributed to variation in informativeness across countries.
 
 # Cross-Country Replication {#sec-task3}
 This section generalizes the analysis to a non-U.S. market by replicating Figure 1 using 1972–2023 data from Canada. This involves aligning CRSP/Compustat variables with Worldscope and Datastream equivalents while accounting for differences in reporting standards, market liquidity, and institutional context. Though the core methodology is retained, adapting it to international data demands careful mapping and interpretation.
@@ -152,6 +151,15 @@ Worldscope is first merged with the link table via code, producing 747,760 rows.
 
 **Step 3: Analysis Implementation and Reproduction of Tables and Figure**  
 The analysis replicates Table 1 (summary statistics), Table 2 (yearly regressions), and Figure 1 (Abnormal R² and slope trends). Using `BHR_3day` and `BHR_Annual`, I run yearly regressions of annual returns on earnings-window returns and compute Abnormal R² (adjusted R² – 4.8%), handling missing values appropriately. 
+
+Specifically, buy-and-hold return over the three-day event window, that measures the stock’s reaction only to earnings news, is computed as given below:
+$$
+\begin{aligned}
+BHR_{\text{event}} &= (1 + R_{t_1}) (1 + R_{t_2}) \dots (1 + R_{t_T}) - 1,
+\\
+\text{where } R_t & \text{ is the daily return and } T \text{ is the total trading days in a year.}
+\end{aligned}
+$$
 
 
 ## Results {#sec-results3}
