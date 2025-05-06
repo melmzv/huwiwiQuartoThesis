@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>readme</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="a-reproducible-quarto-based-template-for-thesis-and-seminar-papers-at-hu-berlins-school-of-business-and-economics" class="level1">
+<h1>A reproducible Quarto-based template for thesis and seminar papers at HU Berlin’s School of Business and Economics</h1>
+<section id="why-use-this-template" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-this-template">Why use this template?</h2>
+<p>This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers—especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the <a href="https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf">WiWi faculty</a> and <a href="https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf">Institute of Accounting and Auditing</a> formatting guidelines—just clone the repo and render the template! :sparkles:</p>
+<p>This template was developed as part of advanced empirical coursework (see my profile for completed projects), specifically for a replication and extension study that followed open science principles while integrating programming skills and institutional knowledge. Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow.</p>
+<p>The default branch, <code>main</code>, is a stripped-down version of the template containing only the Python workflow. This branch was cloned initially from the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the <code>requirements.txt</code> file.</p>
+</section>
+<section id="why-use-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-quarto">Why use Quarto?</h2>
+<p>Quarto enables seamless integration of code, narrative, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows. Unlike LaTeX, which often requires separate tools and manual steps to embed code results, Quarto allows you to combine Python or R code, plots, regression tables, and formatted text in one source.</p>
+<p>This makes it ideal for empirical research where transparency, version control, and automation are essential. By choosing Quarto, you benefit from a modern and flexible writing system that ensures your analysis is fully transparent and reproducible—from raw data to final PDF.</p>
+<p>Still not impressed? You might want to read <a href="https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html">this blog post by Guillaume Dehaene</a>, which explains why <strong>“Quarto is better”</strong> for modern academic workflows.</p>
+<blockquote class="blockquote">
+<p><em>Why not just use Overleaf?</em></p>
+</blockquote>
+<ul>
+<li>While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime.</li>
+<li>Plus, Zotero integration-necessary for managing references—is only available for <strong>premium users</strong>. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:</li>
+</ul>
+<p>Take a look at useful VS Code extensions that can enhance your Quarto experience below :point_down:</p>
+<p align="center">
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF">
+</p>
+<section id="where-do-i-start" class="level3">
+<h3 class="anchored" data-anchor-id="where-do-i-start">Where do I start?</h3>
+<blockquote class="blockquote">
+<p><em>“Talk is cheap. Show me the code.”</em><br>
+— <strong>Linus Torvalds</strong></p>
+</blockquote>
+<p>You start by setting up a few tools on your system:</p>
+<ul>
+<li><p>If you are new to Python, follow the <a href="https://realpython.com/installing-python/">Real Python installation guide</a> that gives a good overview of how to set up Python on your system.</p></li>
+<li><p>Additionally, you will need to set up an Integrated Development Environment (IDE) or a code editor. We recommend using VS Code; please follow the <a href="https://code.visualstudio.com/docs/python/python-tutorial">Getting started with Python in VS Code Guide</a>.</p></li>
+<li><p>You wll also need <a href="https://quarto.org/">Quarto</a>, a scientific and technical publishing system used for used for documenting this project. Please follow the <a href="https://quarto.org/docs/get-started/">Quarto installation guide</a> to install Quarto on your system. I recommend downloading the Quarto <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Extension</a> for enhanced functionality, which streamlines the workflow and ensures professional documentation quality for this project. You can find out more about the system&nbsp;<a href="https://quarto.org/">here</a>.</p></li>
+<li><p>To render this Quarto thesis template to PDF, you need to have both <strong>Quarto</strong> and a full <strong>LaTeX distribution</strong> installed on your local machine.</p>
+<ul>
+<li>For MacOS users, we recommend installing TeX Live via Homebrew.<br>
+</li>
+<li>For Windows or Linux, visit <a href="https://www.tug.org/texlive/acquire-netinstall.html">TeX Live</a> or <a href="https://yihui.org/tinytex/">TinyTeX</a> for lightweight alternatives.</li>
+</ul></li>
+<li><p>Finally, you will also need to have <code>make</code> installed on your system, if you want to use it. It reads instructions from a <code>Makefile</code> and helps automate the execution of these tasks, ensuring that complex workflows are executed correctly and efficiently.</p>
+<ul>
+<li>For Linux users this is usually already installed.</li>
+<li>For MacOS users, you can install <code>make</code> by running <code>brew install make</code> in the terminal.</li>
+<li>For Windows users, there are few options to install <code>make</code> and they are dependent on how you have setup your system. For example, if you have installed the Windows Subsystem for Linux (WSL), you can install <code>make</code> by running <code>sudo apt-get install make</code> in the terminal. If not, you are probably better off googling how to install <code>make</code> on Windows and follow a reliable source.</li>
+</ul></li>
+</ul>
+<p>:open_file_folder: Next, explore the repository to familiarize yourself with its folders and their contents:</p>
+<ul>
+<li><p><code>config</code>: This directory holds configuration files that are being called by the program scripts in the <code>code</code> directory. We try to keep the configurations separate from the code to make it easier to adjust the workflow to your needs. In this project, <code>pull_data_cfg.yaml</code> file outlines the variables and settings needed to extract the necessary data from the WRDS databases. The <code>prepare_data_cfg.yaml</code> file specifies the configurations for preprocessing and cleaning the data before analysis, ensuring consistency and accuracy in the dataset and following the paper filtration requirements. The <code>do_analysis_cfg.yaml</code> file contains parameters and settings for performing the final analysis on the extracted earnings data.</p></li>
+<li><p><code>code</code>: This directory holds program scripts used to pull data from WRDS directly using python, prepare the data, run the analysis and create the output files (a replicated (pickle) output). Using pickle instead of Excel is more preferable as it is a more Pythonic data format, enabling faster read and write operations, preserving data types more accurately, and providing better compatibility with Python data structures and libraries. <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*eFuMBvt4HtOK1YFb-SQ2KA.png" class="img-fluid" alt="image"> <em>The picture illustrates the process of serializing Python objects into a binary format (pickling) for storage in a file and deserializing them back into Python objects (unpickling) for reuse in analysis or other workflows.</em></p></li>
+<li><p><code>data</code>: A directory where data is stored. It is used to organize and manage all data files involved in the project, ensuring clear separation between external, pulled, and generated data. Go through the sub-directories and a README file that explains their purpose.</p></li>
+<li><p><code>doc</code>: This directory contains Quarto files (.qmd) that include text and program instructions for the paper and presentation (feel free to use the presentation template and adjust it to your needs). These files are rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>🌳 Tip:</strong> To easily present your thesis directory structure (e.g., to your supervisor), you can copy and paste it directly from within VS Code using the <a href="https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&amp;ssr=false#overview">Extension</a>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!TIP] - Download the <a href="https://marketplace.visualstudio.com/items?itemName=axelrindle.duplicate-file">VSCode Extension</a> for duplicating files. This will streamline your workflow by allowing you to duplicate files directly within Visual Studio Code, rather than manually copying and pasting in Finder (Mac) or File Explorer (Windows). :wink: - Another fresh tip to synchronise vertical or horizontal scrolling in splitted view in VS Code. To enable it, type in the Command Palette the action name <code>Toggle Locked Scrolling Across Editors</code>. This is particularly useful when aligning the config file with the corresponding Python file, for example. :woman_technologist: - Here is a new tip for <a href="doc/references.bib">references.bib</a> file! If you’re working with multiple citation formats, consider setting up Zotero’s Quick Copy feature to directly copy BibTeX-formatted references into the <code>bib</code> file. This can save time and ensure consistency in your bibliography. Learn more about the Quick Copy feature :point_right: <a href="https://www.zotero.org/support/creating_bibliographies#quick_copy">here</a>. - If the project requires word count, use the <a href="https://marketplace.visualstudio.com/items?itemName=yunierolivera.markdown-quarto-word-count#:~:text=To%20use%20this%20extension%2C%20open,type%20Markdown%20%26%20Quarto%20Word%20Count%20.">VSCode Extension</a> to display the word count in the status bar. Very convenient! - Use the <a href="https://code.visualstudio.com/docs/datascience/data-wrangler#:~:text=Data%20Wrangler%20is%20a%20code,clean%20and%20transform%20the%20data.">Data Wrangler Extension</a> to view and analyze the pulled data, show column statistics and visualizations. It is particularly useful, if your computer can not manage large-sized pulled CSVs.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!NOTE] ✨ This template also includes standalone <code>.tex</code> files—<a href="doc/abstract.tex"><code>abstract.tex</code></a>, <a href="doc/abbreviations.tex"><code>abbreviations.tex</code></a>, and <a href="doc/acknowledgments.tex"><code>acknowledgments.tex</code></a>—which can be used if your chair requires a <strong>different section order</strong> than the default set by the Institute of Accounting and Auditing. Read more on the partials <a href="https://quarto.org/docs/journals/templates.html">here</a>. For example, some chairs may prefer to place the abstract <strong>before</strong> the table of contents, or include the list of abbreviations as a main section. Simply uncomment the relevant <code>\input{}</code> statements in the <code>main.tex</code> or Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles within HU Berlin and beyond. - First, in order to display and work with Latex ‘tex’ files, download the <a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop">LaTeX Workshop Extension</a> for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.</p>
+</blockquote>
+<p>You also see an <code>output</code> directory but it is empty. Why? Because the output paper and presentation are created locally on your computer.</p>
+</section>
+<section id="how-do-i-create-the-output" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-create-the-output">How do I create the output?</h3>
+<p>Assuming that you have database (WRDS in this example) access, Python, VS Code, Quarto, and <code>make</code> installed, this should be relatively straightforward. Refer to the setup instructions in the section <a href="#where-do-i-start">above</a>.</p>
+<ol type="1">
+<li>Click on the <code>Use this template</code> button on the top right of the repository and choose <code>Create a new repository</code>. Provide the repository with a name, a description, and select whether it should be public or private. Then click <code>Create repository</code>.</li>
+<li>Clone the repository to your local machine. Open the repository in VS Code and launch a new terminal.</li>
+<li>It is advisable to create a virtual environment for the project:</li>
+</ol>
+<pre class="shell"><code>python3 -m venv venv # Run this command in the terminal to create a virtual environment in the `venv` directory.
+source venv/bin/activate # Activate the virtual environment on Linux or macOS.
+# venv\Scripts\activate.bat # If you are using Windows Command Prompt.
+# venv/Script/Activate.ps1 # If you are using Windows PowerShell and have allowed script execution.</code></pre>
+<p>You can deactivate the virtual environment by running <code>deactivate</code>.</p>
+<ol start="4" type="1">
+<li>With an active virtual environment, you can install the required packages by running <code>pip install -r requirements.txt</code> in the terminal. This will install the required packages for the project in the virtual environment.</li>
+<li>Copy the file <code>_secrets.env</code> to <code>secrets.env</code> in the project main directory. Then edit the <code>secret.env</code> by adding your WRDS credentials.</li>
+</ol>
+<blockquote class="blockquote">
+<p>[!CAUTION] Ensure your database credentials are stored securely in <code>secrets.env</code>. Sharing this file or exposing its contents could compromise access to sensitive data.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!NOTE] First time you run the <code>pull_wrds_data.py</code> script, it will ask you to enter your WRDS credentials. You should enter them again and choose <code>y</code> to save the <code>.pgpass</code> file. This will save your credentials in the <code>.pgpass</code> file so that you do not need to enter them again. Note that inability to see the password while typing is standard behavior for security reasons. When prompted, type your password even though it won’t be displayed and press Enter. When WRDS prompts you to create a .pgpass file, it’s asking if you want to store your login credentials for easier future access. Answer ‘y’ to create the file now and follow the instructions, or ‘n’ if you prefer to enter your password each time or create the file manually later.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>[!TIP] I have included an intermediate check step using the <code>code/python/test_wrds_connection.py</code> file to ensure that WRDS access is secure and functional before running the main program script. Run it first to ensure the connection to WRDS has been successful. 6. Run <code>make all</code> in the terminal. I use the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools">Makefile Tools extension</a> in VS Code to run the makefile and create the necessary output files to the <code>output</code> directory. I highly recommend using the Makefile! Otherwise, you can run the following commands in the terminal:</p>
+</blockquote>
+<pre class="shell"><code>python code/python/pull_wrds_data.py
+python code/python/prepare_data.py
+python code/python/do_analysis.py
+quarto render doc/paper.qmd
+mv doc/paper.pdf output
+rm -f doc/paper.ttt doc/paper.fff
+quarto render doc/presentation.qmd
+mv doc/presentation.pdf output
+rm -f doc/presentation.ttt doc/presentation.fff</code></pre>
+<ol start="7" type="1">
+<li>Eventually, you will be greeted with the two files in the <code>output</code> directory: “paper.pdf” and “presentation.pdf”. You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:</li>
+</ol>
+</section>
+<section id="setting-up-for-reproducible-empirical-research" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-for-reproducible-empirical-research">Setting up for Reproducible Empirical Research</h3>
+<p>This code base, adapted from TREAT, should give you an overview on how the template is supposed to be used for a thesis project.</p>
+<blockquote class="blockquote">
+<p><strong>📌 Note:</strong> This repository does not contain any <strong>pull requests</strong> because it is an individual project without ongoing code reviews or feature-based branching workflows. However, it includes a <strong>release</strong> after project finish, allowing future collaborative research to build upon this work.</p>
+</blockquote>
+<p>To start a new reproducible thesis project, follow these steps: 1. Clone the repository by clicking “Use this Template” at the top of the file list on GitHub. 2. Remove any files that you don’t need for your specific project. 3. Over time, you can fork this repository and customize it to develop a personalized template that fits your workflow and preferences.</p>
+</section>
+<section id="licensing" class="level3">
+<h3 class="anchored" data-anchor-id="licensing">Licensing</h3>
+<p>This project utilizes the template used in collaborative research center <a href="https://accounting-for-transparency.de">TRR 266 Accounting for Transparency</a>, that is centered on workflows that are typical in the accounting and finance domain.</p>
+<p>The repository is licensed under the MIT license. I would like to give the following credit:</p>
+<pre><code>This repository was built based on the ['treat' template for reproducible research](https://github.com/trr266/treat).</code></pre>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<p>:bulb: If you’re new to collaborative workflows for scientific computing, here are some helpful texts:</p>
+<ul>
+<li>Christensen, Freese and Miguel (2019): Transparent and Reproducible Social Science Research, Chapter 11: https://www.ucpress.edu/book/9780520296954/transparent-and-reproducible-social-science-research</li>
+<li>Gentzkow and Shapiro (2014): Code and data for the social sciences: a practitioner’s guide, https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf</li>
+<li>Wilson, Bryan, Cranston, Kitzes, Nederbragt and Teal (2017): Good enough practices in scientific computing, PLOS Computational Biology 13(6): 1-20, https://doi.org/10.1371/journal.pcbi.1005510</li>
+</ul>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

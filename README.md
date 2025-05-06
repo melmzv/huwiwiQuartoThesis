@@ -1,18 +1,31 @@
 # A reproducible Quarto-based template for thesis and seminar papers at HU Berlin’s School of Business and Economics
 
-## Why use Quarto? 
+## Why use this template?
 
-This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers, especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template supports both archival and non-archival workflows with integrated R/Python code chunks, making it ideal for accounting and finance research.
+This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers—especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute of Accounting and Auditing](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf) formatting guidelines—just clone the repo and render the template! :sparkles:
 
-Traditional empirical research workflows often involve manual data downloads, local data cleaning, independent analysis, and manual report compilation, leading to challenges in reproducibility, collaboration, and version control. This repository provides an infrastructure for an open science-oriented empirical project, specifically targeted at the empirical accounting research community. It features a project exploring the informativeness of quarterly earnings announcements and their contribution to annual share price movements using an event-study methodology. The project showcases a reproducible workflow integrating Python scripts and data analysis, requiring access to the research platform WRDS, which provides access to a variety of datasets. 
+This template was developed as part of advanced empirical coursework (see my profile for completed projects), specifically for a replication and extension study that followed open science principles while integrating programming skills and institutional knowledge. Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow.
 
-Assignment III is an empirical replication and paper extension that follows open science principles, integrating programming skills and institutional knowledge gained throughout the CQA (Corporate Decision-Making and Quantitative Analysis) course. This project also builds on the methodological framework established in the course, which explored a range of empirical research methods—including archival analysis, field experiments, and survey-based approaches—to develop a comprehensive understanding of corporate decision-making and quantitative analysis. This repository equips users to explore the role of accounting in corporate practices while developing skills to gather, prepare, and analyze relevant data using tools and platforms essential for collaborative and reproducible research.
+The default branch, `main`, is a stripped-down version of the template containing only the Python workflow. This branch was cloned initially from the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the `requirements.txt` file.
 
-The task involves accessing and retrieving data from multiple databases through WRDS, including CRSP and Compustat, as well as Worldscope and Datastream from Thomson/Refinitiv. The use of multiple databases adds an additional layer of complexity, requiring not only a solid understanding of their individual structures but also the ability to integrate data from diverse sources. Reproducing tables and figures from a seminal paper necessitates a deep understanding of the paper’s methodology and meticulous attention to detail to match the results. Additionally, the project output includes documentation of the steps taken and explicit assumptions made. The paper (and presentation) output files present the findings, compare them with the key results from the paper, and discuss any observed differences.
+## Why use Quarto?
 
-Even if analyzing the informativeness of quarterly earnings announcements isn’t your usual area of interest (though why wouldn’t it be? :thinking:) or you do not have access to WRDS Databases, the codebase provided in this repository will give you a clear understanding of how to structure a reproducible empirical project. The template and workflow used here are designed to ensure transparency and reproducibility, making it a valuable resource for any empirical accounting research project.
+Quarto enables seamless integration of code, narrative, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows. Unlike LaTeX, which often requires separate tools and manual steps to embed code results, Quarto allows you to combine Python or R code, plots, regression tables, and formatted text in one source.
 
-The default branch, `only_python`, is a stripped-down version of the template containing only the Python workflow. This branch was cloned from the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the `requirements.txt` file.
+This makes it ideal for empirical research where transparency, version control, and automation are essential. By choosing Quarto, you benefit from a modern and flexible writing system that ensures your analysis is fully transparent and reproducible—from raw data to final PDF.
+
+Still not impressed? You might want to read [this blog post by Guillaume Dehaene](https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html), which explains why **"Quarto is better"** for modern academic workflows.
+
+> *Why not just use Overleaf?*  
+
+- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime.
+- Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
+
+Take a look at useful VS Code extensions that can enhance your Quarto experience below :point_down:
+
+<p align="center">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF"/>
+</p>
 
 ### Where do I start?
 
@@ -26,6 +39,10 @@ You start by setting up a few tools on your system:
 - Additionally, you will need to set up an Integrated Development Environment (IDE) or a code editor. We recommend using VS Code; please follow the [Getting started with Python in VS Code Guide](https://code.visualstudio.com/docs/python/python-tutorial).
 
 - You wll also need [Quarto](https://quarto.org/), a scientific and technical publishing system used for used for documenting this project. Please follow the [Quarto installation guide](https://quarto.org/docs/get-started/) to install Quarto on your system. I recommend downloading the Quarto [Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) for enhanced functionality, which streamlines the workflow and ensures professional documentation quality for this project. You can find out more about the system [here](https://quarto.org/).
+
+- To render this Quarto thesis template to PDF, you need to have both **Quarto** and a full **LaTeX distribution** installed on your local machine.  
+  - For MacOS users, we recommend installing TeX Live via Homebrew.  
+  - For Windows or Linux, visit [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html) or [TinyTeX](https://yihui.org/tinytex/) for lightweight alternatives.
 
 - Finally, you will also need to have `make` installed on your system, if you want to use it. It reads instructions from a `Makefile` and helps automate the execution of these tasks, ensuring that complex workflows are executed correctly and efficiently.
     - For Linux users this is usually already installed. 
@@ -43,41 +60,29 @@ You start by setting up a few tools on your system:
 
 - `data`: A directory where data is stored. It is used to organize and manage all data files involved in the project, ensuring clear separation between external, pulled, and generated data. Go through the sub-directories and a README file that explains their purpose. 
 
-- `doc`: This directory contains Quarto files (.qmd) that include text and program instructions for the paper and presentation (<ins> not </ins>  rendered in this project due to task instructions - however, feel free to use the presentation template and adjust it to your needs). These files are rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.
+- `doc`: This directory contains Quarto files (.qmd) that include text and program instructions for the paper and presentation (feel free to use the presentation template and adjust it to your needs). These files are rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.
 
-> [!IMPORTANT]
-> Make use of significantly enhanced LaTeX table formatting for refined and customizable paper output! 
-
-> [!WARNING]
-> While generating the presentation, you may notice that some sections and subsections might not have the correct beamer formatting applied. This occurs due to the color coding in the `beamer_theme_trr266.sty` file, which may require further adjustments. The current output, based on the provided template, may require further customization to ensure consistency across all slides.
-
-> **🌳 Tip:** In order to present the project's directory structure in the presentation by simply copy and paste from within the VS Code, use the [Extension](https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&ssr=false#overview).
+> **🌳 Tip:** To easily present your thesis directory structure (e.g., to your supervisor), you can copy and paste it directly from within VS Code using the [Extension](https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&ssr=false#overview).
 
 > [!TIP]
 > - Download the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=axelrindle.duplicate-file) for duplicating files. This will streamline your workflow by allowing you to duplicate files directly within Visual Studio Code, rather than manually copying and pasting in Finder (Mac) or File Explorer (Windows). :wink:
 > - Another fresh tip to synchronise vertical or horizontal scrolling in splitted view in VS Code. To enable it, type in the Command Palette the action name `Toggle Locked Scrolling Across Editors`. This is particularly useful when aligning the config file with the corresponding Python file, for example. :woman_technologist:
 > - Here is a new tip for [references.bib](doc/references.bib) file! If you're working with multiple citation formats, consider setting up Zotero's Quick Copy feature to directly copy BibTeX-formatted references into the `bib` file. This can save time and ensure consistency in your bibliography. Learn more about the Quick Copy feature :point_right: [here](https://www.zotero.org/support/creating_bibliographies#quick_copy).
-> - Since the assignment requires word count, use the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=yunierolivera.markdown-quarto-word-count#:~:text=To%20use%20this%20extension%2C%20open,type%20Markdown%20%26%20Quarto%20Word%20Count%20.) to display the word count in the status bar. Very convenient! 
+> - If the project requires word count, use the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=yunierolivera.markdown-quarto-word-count#:~:text=To%20use%20this%20extension%2C%20open,type%20Markdown%20%26%20Quarto%20Word%20Count%20.) to display the word count in the status bar. Very convenient! 
 > - Use the [Data Wrangler Extension](https://code.visualstudio.com/docs/datascience/data-wrangler#:~:text=Data%20Wrangler%20is%20a%20code,clean%20and%20transform%20the%20data.) to view and analyze the pulled data, show column statistics and visualizations. It is particularly useful, if  your computer can not manage large-sized pulled CSVs.
 
-<p align="center">
-  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc29pdm0wcmJxN2I0MTdwNHdmNm9xZnNlZ2w1MGt5cHE4OXM1anR4eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/78XCFBGOlS6keY1Bil/giphy.gif" alt="Centered GIF"/>
-</p>
+> [!NOTE]
+> ✨ This template also includes standalone `.tex` files—[`abstract.tex`](doc/abstract.tex), [`abbreviations.tex`](doc/abbreviations.tex), and [`acknowledgments.tex`](doc/acknowledgments.tex)—which can be used if your chair requires a **different section order** than the default set by the Institute of Accounting and Auditing. Read more on the partials [here](https://quarto.org/docs/journals/templates.html).
+> For example, some chairs may prefer to place the abstract **before** the table of contents, or include the list of abbreviations as a main section. Simply uncomment the relevant `\input{}` statements in the `main.tex` or Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles within HU Berlin and beyond.
+> - First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
 
-You also see an `output` directory but it is empty. Why? Because the output paper (and presentation) are created locally on your computer.
+
+You also see an `output` directory but it is empty. Why? Because the output paper and presentation are created locally on your computer.
 
 
 ### How do I create the output?
 
-Assuming that you have WRDS access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
-
-> [!IMPORTANT]
-> - To access the data needed for this project, use the databases available through the WRDS (Wharton Research Data Services) platform. WRDS acts as a gateway, offering tools for data extraction and analysis, consolidating multiple data sources for academic and corporate research.
-> - To access a database through WRDS, complete this [form](https://wrds-www.wharton.upenn.edu/register/) if you are not yet registered. Ensure that you create an account with your institutional (university) email. If you are from Humboldt-Universität zu Berlin, contact the University Library to get your account request approved. After setting up two-factor authentication (2FA) and accepting the terms of use, you will be ready to access WRDS databases.
-> - Please note that WRDS does not typically provide direct access to historical snapshots of databases. The data available through WRDS is usually the most current version. To access a specific historical version, contact the data vendor directly through [WRDS support](mailto:wrds@lseg.com?subject=[GitHub]%20Historical%20Data%20Access) to inquire about the possibility of accessing historical snapshots.
-
-> [!CAUTION]
-> As of [February 2025](https://wrds-www.wharton.upenn.edu/pages/data-announcements/changes-to-crsp-data/), CRSP transitions to Stock & Indexes Flat File Format 2.0 (CIZ), replacing the legacy Flat File Format 1.0 (SIZ). Users must update their code to accommodate new table and variable names to continue accessing updated data. Certain variables will be replaced, which should be taken into account for future reproducible research. :warning:
+Assuming that you have database (WRDS in this example) access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
 
 1. Click on the `Use this template` button on the top right of the repository and choose `Create a new repository`. Provide the repository with a name, a description, and select whether it should be public or private. Then click `Create repository`.
 2. Clone the repository to your local machine. Open the repository in VS Code and launch a new terminal.
@@ -95,7 +100,7 @@ You can deactivate the virtual environment by running `deactivate`.
 5. Copy the file `_secrets.env` to `secrets.env` in the project main directory. Then edit the `secret.env` by adding your WRDS credentials.
 
 > [!CAUTION]
-> Ensure your WRDS credentials are stored securely in `secrets.env`. Sharing this file or exposing its contents could compromise access to sensitive data.
+> Ensure your database credentials are stored securely in `secrets.env`. Sharing this file or exposing its contents could compromise access to sensitive data.
 
 > [!NOTE]
 > First time you run the `pull_wrds_data.py` script, it will ask you to enter your WRDS credentials. You should enter them again and choose `y` to save the `.pgpass` file. This will save your credentials in the `.pgpass` file so that you do not need to enter them again.
@@ -117,23 +122,19 @@ quarto render doc/presentation.qmd
 mv doc/presentation.pdf output
 rm -f doc/presentation.ttt doc/presentation.fff
 ```
-7. Eventually, you will be greeted with the two files in the `output` directory: "paper.pdf" (and "presentation.pdf"). You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
+7. Eventually, you will be greeted with the two files in the `output` directory: "paper.pdf" and "presentation.pdf". You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
 
 ### Setting up for Reproducible Empirical Research
 
-This code base, adapted from TREAT, should give you an overview on how the template is supposed to be used for my specific project and how to structure a reproducible empirical project.
+This code base, adapted from TREAT, should give you an overview on how the template is supposed to be used for a thesis project.
 
 > **📌 Note:** This repository does not contain any **pull requests** because it is an individual project without ongoing code reviews or feature-based branching workflows. However, it includes a **release** after project finish, allowing future collaborative research to build upon this work. 
 
-To start a new reproducible project on the informativeness of quarterly earnings announcements and their impact on share price movements based on this repository, follow these steps: 
+To start a new reproducible thesis project, follow these steps: 
 1. Clone the repository by clicking “Use this Template” at the top of the file list on GitHub. 
 2. Remove any files that you don’t need for your specific project. 
 3. Over time, you can fork this repository and customize it to develop a personalized template that fits your workflow and preferences.
 
-> [!TIP]
-> For additional guidance on concepts and data handling relevant to this project, please use these useful sources:
-> - [Empirical Research in Accounting: Tools and Methods](https://iangow.github.io/far_book/identifiers.html), which focuses on providing foundational skills for accounting research, including research design, causal inference, and data analysis, with an emphasis on the use of WRDS data.
-> - [CRSP US Stock & Index Databases - Data Descriptions Guide](https://www.crsp.org/wp-content/uploads/guides/CRSP_US_Stock_&_Indexes_Database_Data_Descriptions_Guide.pdf), a comprehensive reference for understanding the CRSP database structure and data definitions.
 
 ### Licensing
 
