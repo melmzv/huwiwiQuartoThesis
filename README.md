@@ -1,8 +1,8 @@
-# A reproducible Quarto-based template for thesis and seminar papers at HU Berlin’s School of Business and Economics
+# A reproducible Quarto-based template for thesis at HU Berlin’s School of Business and Economics
 
 ## Why use this template?
 
-This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers—especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute of Accounting and Auditing](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf) formatting guidelines—just clone the repo and render the template! :sparkles:
+This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses—especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute of Accounting and Auditing](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf) formatting guidelines—just clone the repo and render the template! :sparkles:
 
 This template was developed as part of advanced empirical coursework (see my profile for completed projects), specifically for a replication and extension study that followed open science principles while integrating programming skills and institutional knowledge. Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow.
 
