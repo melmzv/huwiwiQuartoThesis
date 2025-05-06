@@ -61,13 +61,15 @@ This thesis examines how much new information is conveyed in quarterly earnings 
 
 # List of Abbreviations {-}
 \setlength{\parindent}{0em}
-**BHR**: Buy-and-Hold Returns   
-**CRSP**: Center for Research in Security Prices  
-**DS**: Datastream  
-**IDE**: Integrated Development Environment  
-**TREAT**: TRR 266 Template for Reproducible Empirical Accounting Research  
-**WRDS**: Wharton Research Data Services  
-**WSCP**: Worldscope  
+\begin{tabular}{@{}ll}
+\textbf{BHR}   & Buy-and-Hold Returns \\
+\textbf{CRSP}  & Center for Research in Security Prices \\
+\textbf{DS}    & Datastream \\
+\textbf{IDE}   & Integrated Development Environment \\
+\textbf{TREAT} & TRR 266 Template for Reproducible Empirical Accounting Research \\
+\textbf{WRDS}  & Wharton Research Data Services \\
+\textbf{WSCP}  & Worldscope \\
+\end{tabular}
 
 \newpage
 \pagenumbering{arabic}

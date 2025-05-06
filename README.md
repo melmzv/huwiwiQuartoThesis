@@ -1,6 +1,8 @@
-# Corporate Decision-Making and Quantitative Analysis - Individual Report: How much new information is there in earnings?
+# A reproducible Quarto-based template for thesis and seminar papers at HU Berlin’s School of Business and Economics
 
 ## Adopting the Open Science Workflow and TRR 266 Template for Reproducible Empirical Accounting Research 
+
+This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers, especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template supports both archival and non-archival workflows with integrated R/Python code chunks, making it ideal for accounting and finance research.
 
 Traditional empirical research workflows often involve manual data downloads, local data cleaning, independent analysis, and manual report compilation, leading to challenges in reproducibility, collaboration, and version control. This repository provides an infrastructure for an open science-oriented empirical project, specifically targeted at the empirical accounting research community. It features a project exploring the informativeness of quarterly earnings announcements and their contribution to annual share price movements using an event-study methodology. The project showcases a reproducible workflow integrating Python scripts and data analysis, requiring access to the research platform WRDS, which provides access to a variety of datasets. 
 
