@@ -76,10 +76,8 @@ You start by setting up a few tools on your system:
 
 > [!NOTE]
 > ✨ This template also includes standalone `.tex` files—[`abstract.tex`](doc/abstract.tex), [`abbreviations.tex`](doc/abbreviations.tex), and [`acknowledgments.tex`](doc/acknowledgements.tex)—which can be used if your chair requires a **different section order** than the default set by the Institute of Accounting and Auditing. Read more on the partials [here](https://quarto.org/docs/journals/templates.html).
-
 > For example, some chairs may prefer to place the abstract **before** the table of contents, or include the list of abbreviations as a main section. Simply amend Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles.
-
-> First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
+> :point_right: First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
 
 
 You also see an `output` directory but it is empty. Why? Because the output paper and presentation are created locally on your computer.
