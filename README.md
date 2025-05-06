@@ -1,6 +1,6 @@
 # A reproducible Quarto-based template for thesis and seminar papers at HU Berlin’s School of Business and Economics
 
-## Adopting the Open Science Workflow and TRR 266 Template for Reproducible Empirical Accounting Research 
+## Why use Quarto? 
 
 This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses or seminar papers, especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template supports both archival and non-archival workflows with integrated R/Python code chunks, making it ideal for accounting and finance research.
 

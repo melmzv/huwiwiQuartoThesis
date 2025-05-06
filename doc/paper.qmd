@@ -78,9 +78,9 @@ This thesis examines how much new information is conveyed in quarterly earnings 
 \newgeometry{left=6cm, right=1.5cm, top=2cm, bottom=2cm}
 
 # Introduction {#sec-introduction}
-This project serves as a template-based example for conducting and documenting reproducible empirical accounting research. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis course, as well as the Accounting Reading Group course, which explored archival and non-archival research methods. To support future empirical thesis projects, this template was adapted and further developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group.
+This project serves as a template-based example for conducting and documenting reproducible empirical accounting research. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis course, as well as the Accounting Reading Group course, which explored archival and non-archival research methods. To support future empirical thesis projects, this template was adapted and further developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group. The template was developed in adherence to the formal formatting and content guidelines of the School of Business and Economics, and in particular, those of the Institute of Accounting and Auditing.
 
-Following prior assignments on audit market concentration and financial reporting effects (e.g., @graham_economic_2005), this project focuses on the informativeness of quarterly earnings announcements. Specifically, it replicates and extends the study by @ball_how_2008, which examines whether earnings announcements contribute new information to markets or merely confirm what is already known—contributing to the long-standing discussion on market efficiency and the valuation versus contracting roles of accounting.
+The template project showcases a research on audit market concentration and financial reporting effects (e.g., @graham_economic_2005), and focuses on the informativeness of quarterly earnings announcements. Specifically, it replicates and extends the study by @ball_how_2008, which examines whether earnings announcements contribute new information to markets or merely confirm what is already known—contributing to the long-standing discussion on market efficiency and the valuation versus contracting roles of accounting.
 
 The paper is organized into four main parts. In @sec-task1, I replicate the core findings of the original study using U.S. data from 1972 to 2006. In @sec-task2, I apply the same methodology to U.S. data from 2007 to 2023 to explore temporal robustness. In @sec-task3, I generalize the findings to a non-U.S. country to assess cross-country variation and data integration requirements. Finally, @sec-task4 sketches a non-archival research design using a survey-based approach to evaluate the underlying assumptions of the original paper. The thesis concludes with reflections and key insights in @sec-conclusion.
 
@@ -161,14 +161,14 @@ Worldscope is first merged with the link table via code, producing 747,760 rows.
 **Step 3: Analysis Implementation and Reproduction of Tables and Figure**  
 The analysis replicates Table 1 (summary statistics), Table 2 (yearly regressions), and Figure 1 (Abnormal R² and slope trends). Using `BHR_3day` and `BHR_Annual`, I run yearly regressions of annual returns on earnings-window returns and compute Abnormal R² (adjusted R² – 4.8%), handling missing values appropriately. 
 
-Specifically, buy-and-hold return over the three-day event window, that measures the stock’s reaction only to earnings news, is computed as given below:
+Specifically, buy-and-hold return over the three-day event window, that measures the stock’s reaction only to earnings news, is computed as shown in @eq-bhr_event:
 $$
 \begin{aligned}
 BHR_{\text{event}} &= (1 + R_{t_1}) (1 + R_{t_2}) \dots (1 + R_{t_T}) - 1,
 \\
 \text{where } R_t & \text{ is the daily return and } T \text{ is the total trading days in a year.}
 \end{aligned}
-$$
+$$ {#eq-bhr_event}
 
 
 ## Results {#sec-results3}
