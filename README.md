@@ -6,7 +6,7 @@ This repository provides a modern, modular Quarto + LaTeX template tailored to s
 
 This template was developed as part of advanced empirical coursework (see my profile for completed projects), specifically for a replication and extension study that followed open science principles while integrating programming skills and institutional knowledge. Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow.
 
-The default branch, `main`, is a stripped-down version of the template containing only the Python workflow. This branch was cloned initially from the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the `requirements.txt` file.
+The default branch, `main`, is a stripped-down version of the template containing only the Python workflow. This branch was cloned initially from the TREAT repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the `requirements.txt` file.
 
 ## Why use Quarto?
 
@@ -18,7 +18,7 @@ Still not impressed? You might want to read [this blog post by Guillaume Dehaene
 
 > *Why not just use Overleaf?*  
 
-- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime.
+- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime. :zap:
 - Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
 
 Take a look at useful VS Code extensions that can enhance your Quarto experience below :point_down:
@@ -75,9 +75,11 @@ You start by setting up a few tools on your system:
 > - Use the [Data Wrangler Extension](https://code.visualstudio.com/docs/datascience/data-wrangler#:~:text=Data%20Wrangler%20is%20a%20code,clean%20and%20transform%20the%20data.) to view and analyze the pulled data, show column statistics and visualizations. It is particularly useful, if  your computer can not manage large-sized pulled CSVs.
 
 > [!NOTE]
-> ✨ This template also includes standalone `.tex` files—[`abstract.tex`](doc/abstract.tex), [`abbreviations.tex`](doc/abbreviations.tex), and [`acknowledgments.tex`](doc/acknowledgments.tex)—which can be used if your chair requires a **different section order** than the default set by the Institute of Accounting and Auditing. Read more on the partials [here](https://quarto.org/docs/journals/templates.html).
-> For example, some chairs may prefer to place the abstract **before** the table of contents, or include the list of abbreviations as a main section. Simply uncomment the relevant `\input{}` statements in the `main.tex` or Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles within HU Berlin and beyond.
-> - First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
+> ✨ This template also includes standalone `.tex` files—[`abstract.tex`](doc/abstract.tex), [`abbreviations.tex`](doc/abbreviations.tex), and [`acknowledgments.tex`](doc/acknowledgements.tex)—which can be used if your chair requires a **different section order** than the default set by the Institute of Accounting and Auditing. Read more on the partials [here](https://quarto.org/docs/journals/templates.html).
+
+> For example, some chairs may prefer to place the abstract **before** the table of contents, or include the list of abbreviations as a main section. Simply amend Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles.
+
+> First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
 
 
 You also see an `output` directory but it is empty. Why? Because the output paper and presentation are created locally on your computer.
