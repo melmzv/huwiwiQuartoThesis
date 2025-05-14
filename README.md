@@ -40,9 +40,10 @@ You start by setting up a few tools on your system:
 
 - You wll also need [Quarto](https://quarto.org/), a scientific and technical publishing system used for used for documenting this project. Please follow the [Quarto installation guide](https://quarto.org/docs/get-started/) to install Quarto on your system. I recommend downloading the Quarto [Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) for enhanced functionality, which streamlines the workflow and ensures professional documentation quality for this project. You can find out more about the system [here](https://quarto.org/).
 
-- To render this Quarto thesis template to PDF, you need to have both **Quarto** and a full **LaTeX distribution** installed on your local machine.  
-  - For MacOS users, we recommend installing TeX Live via Homebrew.  
-  - For Windows or Linux, visit [TeX Live](https://www.tug.org/texlive/acquire-netinstall.html) or [TinyTeX](https://yihui.org/tinytex/) for lightweight alternatives.
+- To render this Quarto thesis template to PDF, you need to install **TinyTeX** directly via Quarto using:  
+    ```bash
+    quarto install tinytex
+    ```
 
 - Finally, you will also need to have `make` installed on your system, if you want to use it. It reads instructions from a `Makefile` and helps automate the execution of these tasks, ensuring that complex workflows are executed correctly and efficiently.
     - For Linux users this is usually already installed. 
