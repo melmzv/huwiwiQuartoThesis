@@ -18,7 +18,7 @@ Still not impressed? You might want to read [this blog post by Guillaume Dehaene
 
 > *Why not just use Overleaf?*  
 
-- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime. :zap:
+- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
 - Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
 
 Take a look at useful VS Code extensions that can enhance your Quarto experience below :point_down:
@@ -63,7 +63,7 @@ You start by setting up a few tools on your system:
 
 - `data`: A directory where data is stored. It is used to organize and manage all data files involved in the project, ensuring clear separation between external, pulled, and generated data. Go through the sub-directories and a README file that explains their purpose. 
 
-- `doc`: This directory contains Quarto files (.qmd) that include text and program instructions for the paper and presentation (feel free to use the presentation template and adjust it to your needs). These files are rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.
+- `doc`: This directory contains Quarto file (.qmd) that include text and program instructions for the paper rendering. The file is rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.
 
 > **🌳 Tip:** To easily present your thesis directory structure (e.g., to your supervisor), you can copy and paste it directly from within VS Code using the [Extension](https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&ssr=false#overview).
 
@@ -75,12 +75,10 @@ You start by setting up a few tools on your system:
 > - Use the [Data Wrangler Extension](https://code.visualstudio.com/docs/datascience/data-wrangler#:~:text=Data%20Wrangler%20is%20a%20code,clean%20and%20transform%20the%20data.) to view and analyze the pulled data, show column statistics and visualizations. It is particularly useful, if  your computer can not manage large-sized pulled CSVs.
 
 > [!NOTE]
-> - ✨ This template also includes standalone `.tex` files—[`abstract.tex`](doc/abstract.tex), [`abbreviations.tex`](doc/abbreviations.tex), and [`acknowledgments.tex`](doc/acknowledgements.tex)—which can be used if your chair requires a **different section order** than the default set by the Institute of Accounting and Auditing. Read more on the partials [here](https://quarto.org/docs/journals/templates.html).
-> - For example, some chairs may prefer to place the abstract **before** the table of contents, or include the list of abbreviations as a main section. Simply amend Quarto YAML preamble and adjust the order to fit your needs. This makes the template highly adaptable across different thesis styles.
-> - :point_right: First, in order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
+> - :point_right: In order to display and work with Latex 'tex' files, download the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for VS Code. This extension provides a comprehensive set of tools for editing and compiling LaTeX documents, including syntax highlighting, code completion, and PDF preview capabilities.
 
 
-You also see an `output` directory but it is empty. Why? Because the output paper and presentation are created locally on your computer.
+You also see an `output` directory but it is empty. Why? Because the output paper is created locally on your computer.
 
 
 ### How do I create the output?
@@ -121,11 +119,8 @@ python code/python/do_analysis.py
 quarto render doc/paper.qmd
 mv doc/paper.pdf output
 rm -f doc/paper.ttt doc/paper.fff
-quarto render doc/presentation.qmd
-mv doc/presentation.pdf output
-rm -f doc/presentation.ttt doc/presentation.fff
 ```
-7. Eventually, you will be greeted with the two files in the `output` directory: "paper.pdf" and "presentation.pdf". You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
+7. Eventually, you will be greeted with the "paper.pdf" file in the `output` directory. You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
 
 ### Setting up for Reproducible Empirical Research
 
