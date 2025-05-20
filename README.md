@@ -38,7 +38,7 @@ You start by setting up a few tools on your system:
 
 - Additionally, you will need to set up an Integrated Development Environment (IDE) or a code editor. We recommend using VS Code; please follow the [Getting started with Python in VS Code Guide](https://code.visualstudio.com/docs/python/python-tutorial).
 
-- You wll also need [Quarto](https://quarto.org/), a scientific and technical publishing system used for used for documenting this project. Please follow the [Quarto installation guide](https://quarto.org/docs/get-started/) to install Quarto on your system. I recommend downloading the Quarto [Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) for enhanced functionality, which streamlines the workflow and ensures professional documentation quality for this project. You can find out more about the system [here](https://quarto.org/).
+- You will also need [Quarto](https://quarto.org/), a scientific and technical publishing system used for used for documenting this project. Please follow the [Quarto installation guide](https://quarto.org/docs/get-started/) to install Quarto on your system. I recommend downloading the Quarto [Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) for enhanced functionality, which streamlines the workflow and ensures professional documentation quality for this project. You can find out more about the system [here](https://quarto.org/).
 
 - To render this Quarto thesis template to PDF, you need to install **TinyTeX** directly via Quarto using:  
     ```bash
@@ -108,8 +108,6 @@ You can deactivate the virtual environment by running `deactivate`.
 > First time you run the `pull_wrds_data.py` script, it will ask you to enter your WRDS credentials. You should enter them again and choose `y` to save the `.pgpass` file. This will save your credentials in the `.pgpass` file so that you do not need to enter them again.
 > Note that inability to see the password while typing is standard behavior for security reasons. When prompted, type your password even though it won’t be displayed and press Enter. When WRDS prompts you to create a .pgpass file, it’s asking if you want to store your login credentials for easier future access. Answer ‘y’ to create the file now and follow the instructions, or ‘n’ if you prefer to enter your password each time or create the file manually later.
 
-> [!TIP]
-> I have included an intermediate check step using the `code/python/test_wrds_connection.py` file to ensure that WRDS access is secure and functional before running the main program script. Run it first to ensure the connection to WRDS has been successful.
 6. Run `make all` in the terminal. I use the [Makefile Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) in VS Code to run the makefile and create the necessary output files to the `output` directory.
 I highly recommend using the Makefile! Otherwise, you can run the following commands in the terminal:
 

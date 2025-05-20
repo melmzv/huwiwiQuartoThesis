@@ -5,12 +5,11 @@
 # ------------------------------------------------------------------------------
 
 PAPER := output/paper.pdf
-PRESENTATION := output/presentation.pdf
 PICKLE := output/figure1_replication.pickle
 RESULTS := output/regression_results.csv
 SUMMARY := output/summary_statistics.csv
 
-TARGETS := $(PAPER) $(PRESENTATION) $(PICKLE) $(RESULTS) $(SUMMARY)
+TARGETS := $(PAPER) $(PICKLE) $(RESULTS) $(SUMMARY)
 
 # Config Files
 PULL_DATA_CFG := config/pull_data_cfg.yaml
@@ -67,9 +66,3 @@ $(PAPER): doc/paper.qmd doc/references.bib $(RESULTS) $(PICKLE)
 	quarto render $< --quiet
 	mv doc/paper.pdf output
 	rm -f doc/paper.ttt doc/paper.fff
-
-# Presentation Compilation Step
-$(PRESENTATION): doc/presentation.qmd doc/references.bib $(RESULTS) $(PICKLE)
-	quarto render $< --quiet
-	mv doc/presentation.pdf output
-	rm -f doc/presentation.ttt doc/presentation.fff
