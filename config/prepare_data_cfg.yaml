@@ -1,22 +1,2 @@
-# --- Input: Pulled Data ---
-crsp_save_path_csv: 'data/pulled/crsp_daily_stock_returns.csv'
-fundq_save_path_csv: 'data/pulled/compustat_fundq_1972_2023.csv'
-
-# --- Input: Pulled Data ---
-worldscope_sample_save_path_csv: 'data/pulled/wrds_ws_stock.csv'
-datastream_sample_save_path_csv: 'data/pulled/wrds_ds2dsf.csv'
-link_ds_ws_save_path_csv: 'data/pulled/wrds_link_ds_ws.csv'
-
-# --- Output: Generated Data ---
-prepared_wrds_ds2dsf_path: 'data/generated/prepared_data_wrds_ds2dsf.csv'
-prepared_wrds_ds2dsf_parquet: 'data/generated/prepared_data_wrds_ds2dsf.parquet'
-
-# --- Output: BHR Computation ---
-bhr_event_output_csv: "data/generated/bhr_event_results.csv"
-bhr_event_output_parquet: "data/generated/bhr_event_results.parquet"
-
-# --- Output: BHR Annual Stock Data Extract ---
-annual_stock_data_csv: "data/generated/annual_stock_data.csv"
-annual_stock_data_parquet: "data/generated/annual_stock_data.parquet"
-bhr_annual_output_csv: "data/generated/bhr_annual_results.csv"
-bhr_annual_output_parquet: "data/generated/bhr_annual_results.parquet"
+input_path: 'data/pulled/gapminder_2007.parquet'
+output_path: 'data/generated/gapminder_2007_prepared.parquet'

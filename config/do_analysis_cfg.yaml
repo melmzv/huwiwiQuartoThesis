@@ -1,17 +1,10 @@
-# --- Input: BHR Computation ---
-bhr_event_output_csv: "data/generated/bhr_event_results.csv"
-bhr_event_output_parquet: "data/generated/bhr_event_results.parquet"
-
-bhr_annual_output_csv: "data/generated/bhr_annual_results.csv"
-bhr_annual_output_parquet: "data/generated/bhr_annual_results.parquet"
+# --- Input: Prepared Gapminder 2007 Data ---
+gapminder_2007_input: "data/generated/gapminder_2007_prepared.parquet"
 
 # --- Output: Summary Statistics ---
 summary_statistics_csv: "output/summary_statistics.csv"
+summary_statistics_pickle: "output/summary_statistics.pickle"
 
-# --- Output: Regression Results ---
-regression_results_csv: "output/regression_results.csv" 
-regression_results_plot: "output/regression_plot.png"
-
-# --- Output: Figure Replication ---
+# --- Output: Figure ---
 figure1_save_path: "output/figure1_replication.png"
 figure1_pickle_path: "output/figure1_replication.pickle"
