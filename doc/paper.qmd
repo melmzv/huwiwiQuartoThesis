@@ -55,20 +55,16 @@ I would like to thank my professors, colleagues, and friends for their support a
 \clearpage
 
 # Abstract {-}
-This thesis examines how much new information is conveyed in quarterly earnings announcements, replicating and extending the study by Ball and Shivakumar (2008). Using a reproducible workflow based on the TRR 266 Template, I analyze U.S. and Canadian data from 1972 to 2023, applying an event-study design to assess the explanatory power of earnings windows on annual stock returns. The findings show that earnings informativeness varies across time and jurisdictions, with evidence suggesting institutional factors influence market reactions. A non-archival survey design is also proposed to explore investor perceptions, enriching the archival analysis with complementary behavioral insights.
+This thesis template explores global development patterns using the publicly available Gapminder dataset, with a specific focus on the year 2007. Leveraging a reproducible workflow adapted from the TRR 266 Template, the project presents descriptive statistics by continent and a visual analysis of the relationship between life expectancy, income per capita, and population. The findings reveal clear disparities in health and wealth outcomes across world regions. A comparison with Gapminder’s 2021 global development chart highlights persistent global inequalities, while illustrating notable progress in certain regions. The analysis serves as a modern, transparent example of public data storytelling in empirical research.
 
 \newpage
 
 # List of Abbreviations {-}
 \setlength{\parindent}{0em}
 \begin{tabular}{@{}ll}
-\textbf{BHR}   & Buy-and-Hold Returns \\
-\textbf{CRSP}  & Center for Research in Security Prices \\
-\textbf{DS}    & Datastream \\
+\textbf{GDP}   & Gross Domestic Product \\
 \textbf{IDE}   & Integrated Development Environment \\
 \textbf{TREAT} & TRR 266 Template for Reproducible Empirical Accounting Research \\
-\textbf{WRDS}  & Wharton Research Data Services \\
-\textbf{WSCP}  & Worldscope \\
 \end{tabular}
 
 \newpage
@@ -77,13 +73,13 @@ This thesis examines how much new information is conveyed in quarterly earnings 
 \setlength{\parskip}{0em}
 \newgeometry{left=6cm, right=1.5cm, top=2cm, bottom=2cm}
 
+
 # Introduction {#sec-introduction}
-This project serves as a template-based example for conducting and documenting reproducible empirical accounting research. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis course, as well as the Accounting Reading Group course, which explored archival and non-archival research methods. To support future empirical thesis projects, this template was adapted and further developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group. The template was developed in adherence to the formal formatting and content guidelines of the School of Business and Economics, and in particular, those of the Institute of Accounting and Auditing. This is not a completed thesis but a template provided as part of the [project template repository](https://github.com/melmzv/huwiwiQuartoThesis).
+This project serves as a template-based example for conducting and documenting reproducible empirical data analysis using publicly available datasets. It leverages the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT) and builds upon the methodological foundations of the Corporate Decision-Making and Quantitative Analysis, as well as the Accounting Reading Group course. To support future empirical thesis projects, this template was adapted and developed specifically for students at the School of Business and Economics at Humboldt-Universität zu Berlin—particularly those affiliated with the Institute of Accounting and Auditing and the Finance Group. The template was developed in adherence to the formal formatting and content guidelines of the School of Business and Economics, and in particular, those of the Institute of Accounting and Auditing. It is not a completed thesis but a demonstrative project hosted in the [template repository](https://github.com/melmzv/huwiwiQuartoThesis).
 
-The template project showcases a research on audit market concentration and financial reporting effects (e.g., @graham_economic_2005), and focuses on the informativeness of quarterly earnings announcements. Specifically, it replicates and extends the study by @ball_how_2008, which examines whether earnings announcements contribute new information to markets or merely confirm what is already known—contributing to the long-standing discussion on market efficiency and the valuation versus contracting roles of accounting.
+This template project explores global development patterns using the Gapminder dataset, focusing on the year 2007. The project illustrates how reproducible research workflows can be applied beyond traditional financial datasets by using public and open-source data. Specifically, it presents a summary statistics table by continent and visualizes the relationship between GDP per capita and life expectancy, offering a static snapshot of world development during 2007. These descriptive results are presented in @sec-task1.
 
-The paper is organized into four main parts. In @sec-task1, I replicate the core findings of the original study using U.S. data from 1972 to 2006. In @sec-task2, I apply the same methodology to U.S. data from 2007 to 2023 to explore temporal robustness. In @sec-task3, I generalize the findings to a non-U.S. country to assess cross-country variation and data integration requirements. Finally, @sec-task4 sketches a non-archival research design using a survey-based approach to evaluate the underlying assumptions of the original paper. The thesis concludes with reflections and key insights in @sec-conclusion.
-
+The results are further contrasted with Gapminder’s interactive global development visualizations as of 2021 [@gapminder_health_chart], highlighting the potential and limits of static data analysis. This comparative discussion is provided in @sec-task2. The project concludes with reflections on transparency, reproducibility, and the importance of making research accessible to a broader audience, as discussed in @sec-conclusion.
 
 # Replication of Key Tables and Figures {#sec-task1}
 This section replicates key tables and figures from @ball_how_2008 using daily US stock return data (1972–2006) to establish baseline results. By reconstructing Table 1 (Panel A), Table 2, and Figure 1, it evaluates the robustness of the original findings and highlights any discrepancies. Daily CRSP data ensures accurate measurement of stock reactions around earnings announcements. Replication results are discussed in @sec-results1, with extended analysis in @sec-task2.
@@ -114,31 +110,18 @@ BHRs are computed using the cumulative return formula per @gundersen_returns_202
 
 
 ## Results {#sec-results1}
-This section presents the replication results, comparing them with the original @fig-fig1_original by @ball_how_2008.
+This section compares the static 2007 snapshot with Gapminder’s dynamic global development chart @fig-gapminder_original [@gapminder_health_chart].
 
 ```{r}
-#| label: fig-fig1_original
-#| fig-cap: "Original Figure 1 from Ball and Shivakumar (2008)"
+#| label: fig-gapminder_original
+#| fig-cap: "Original World Health Chart 2021 from Gapminder Foundation"
 #| echo: false
 #| fig-align: center
-knitr::include_graphics("fig1_original.pdf")
+knitr::include_graphics("countries_health_wealth_2021.pdf")
 ```
 
 
-# Extending the Analysis to 2007–2023 {#sec-task2}
-This section extends the analysis to 2007–2023, a period shaped by events like the 2008 financial crisis and the COVID-19 pandemic. Although the programming involves only a sample period update, the process requires thoughtful economic interpretation of how structural shifts and evolving market conditions may have affected the informativeness of earnings announcements.
-
-## Research Design Choices and Assumptions {#sec-research_design_assumptions2}
-
-Assumptions from @sec-research_design_assumptions1 still hold. 
-
-## Replication Steps {#sec-replication_steps2}
-The pull, preparation, and analysis step would remain the same as designed in @sec-replication_steps1 with the only change in data range.
-
-## Results {#sec-results2}
-Shifting the sample to 2007–2023 introduces potential changes in earnings announcement informativeness driven by key economic events. The 2008 financial crisis and the 2020 COVID-19 pandemic likely heightened market uncertainty, increasing reliance on earnings disclosures to assess firm stability. These developments may have influenced how earnings news is reflected in stock prices and contributed to variation in informativeness across countries.
-
-# Cross-Country Replication {#sec-task3}
+# Cross-Country Replication {#sec-task2}
 This section generalizes the analysis to a non-U.S. market by replicating Figure 1 using 1972–2023 data from Canada. This involves aligning CRSP/Compustat variables with Worldscope and Datastream equivalents while accounting for differences in reporting standards, market liquidity, and institutional context. Though the core methodology is retained, adapting it to international data demands careful mapping and interpretation.
 
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions3}
@@ -176,52 +159,6 @@ Comparing the replication results with those from @ball_how_2008 reveals both si
 
 The post-2000 period in the replication shows more inconsistent abnormal  R²  values, possibly reflecting evolving market structures, shifts in disclosure practices, and increased earnings informativeness following regulatory changes (e.g., IFRS adoption, post-SOX adjustments, different financial market structure). The pronounced fluctuations could also be driven by global financial crisis, Canada's higher market concentration, fewer publicly traded firms, and potential regulatory differences, which may affect earnings informativeness and stock return patterns. The variability in slope coefficients further suggests that earnings announcements’ impact on stock returns is less stable than in prior decades, potentially due to differences in investor response.
 
-
-# Research Design for a Non-Archival Study {#sec-task4}
-
-To extend the analysis beyond archival methods, this section proposes a survey to assess whether investors perceive earnings announcements as informative or merely confirmatory, following the triangulation principle in empirical research [@bloomfield_gathering_2016]. While @ball_how_2008 measure market reactions via stock returns, surveys can capture investor beliefs directly, offering complementary evidence on earnings informativeness.
-
-A structured survey targeting 300 institutional and retail investors will be distributed through financial networks and platforms (e.g., LinkedIn, CFA societies), with a pilot study refining its clarity. Participants will receive a €20 honorarium, and responses will remain anonymous. The survey measures perceived informativeness (DV) using Likert-scale and multiple-choice questions, with IVs capturing factors such as investor preparedness and reaction timing.
-
-Follow-up interviews with selected respondents will add qualitative depth, enabling a richer understanding of investor perspectives. This mixed-method approach enhances validity and supports generalization of findings beyond price-based evidence.
-
-## Survey Questions
-
-1. **How do you typically prepare for earnings announcements in your investment decisions?**
-    * I conduct in-depth research and adjust my positions in advance 
-    * I monitor but rarely adjust positions pre-announcement
-    * I rely on market consensus, analyst forecasts, and AI-driven insights
-    * I do not make investment decisions based on earnings announcements
-
-2. **How do you typically react to earnings announcements?**
-    * I adjust my investment strategy immediately based on the announcement.
-    * I wait for further analysis before making changes.
-    * I rarely make investment decisions based on earnings announcements.
-
-3. **To what extent do you believe that earnings announcements provide new information beyond what is already reflected in market prices?**
-    * Always
-    * Most of the time
-    * Sometimes
-    * Rarely
-    * Never
-
-4. **Rank the following factors in order of importance when evaluating earnings announcements (1 = most important, 5 = least important):**
-    * Earnings per share (EPS) compared to analyst forecasts
-    * Revenue growth
-    * Management guidance and commentary
-    * Market reaction on the day of the announcement
-    * Industry trends and macroeconomic conditions
-
-5. **Do you consider earnings announcements to be more confirmatory or informative?**
-    * Primarily confirmatory (reinforce existing expectations)
-    * Primarily informative (provide new insights)
-    * A mix of both
-
-## Follow-Up Interview Questions
-
-1. Can you describe a recent instance where an earnings announcement significantly influenced your investment decision?
-2. In your experience, are there specific industries where earnings announcements are more informative than confirmatory?
-3. Do you use earnings announcements differently depending on market conditions (e.g., economic downturn vs. growth periods)?
 
 # Conclusion {#sec-conclusion}
 This thesis template demonstrates how the TRR 266 framework can be applied to structure a reproducible and transparent empirical accounting study. Using Quarto proved to be a particularly effective and user-friendly solution for structuring and rendering the thesis. It facilitates seamless integration of code, results, and narrative, making it an ideal tool for students at the Institute of Accounting and Auditing or the Finance Group at the School of Business and Economics, HU Berlin. Thanks for reading!

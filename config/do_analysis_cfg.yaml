@@ -6,5 +6,5 @@ summary_statistics_csv: "output/summary_statistics.csv"
 summary_statistics_pickle: "output/summary_statistics.pickle"
 
 # --- Output: Figure ---
-figure1_save_path: "output/figure1_replication.png"
-figure1_pickle_path: "output/figure1_replication.pickle"
+gapminder_figure_png: "output/gapminder_figure.png"
+gapminder_figure_pickle: "output/gapminder_figure.pickle"

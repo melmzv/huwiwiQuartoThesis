@@ -19,13 +19,15 @@ def main():
     log.info("Computing summary statistics by continent ...")
     summary = compute_summary(df)
     summary.to_csv(cfg["summary_statistics_csv"], index=False)
+    with open(cfg["summary_statistics_pickle"], "wb") as f:
+        pickle.dump(summary, f)
     log.info("Summary statistics saved.")
 
     # === Plot ===
     log.info("Creating and saving figure ...")
     fig = plot_figure(df)
-    fig.savefig(cfg["figure1_save_path"])
-    with open(cfg["figure1_pickle_path"], "wb") as f:
+    fig.savefig(cfg["gapminder_figure_png"])
+    with open(cfg["gapminder_figure_pickle"], "wb") as f:
         pickle.dump(fig, f)
     log.info("Figure saved as PNG and pickle.")
 
@@ -46,29 +48,54 @@ def compute_summary(df):
         )
         .reset_index()
     )
+    
+    # Round numeric columns to 0 decimal places
+    numeric_cols = summary.select_dtypes(include="number").columns
+    summary[numeric_cols] = summary[numeric_cols].round(2)
+
     return summary
 
 
 def plot_figure(df):
     """Scatter plot: GDP per capita vs. Life Expectancy (bubble size = pop)."""
     fig, ax = plt.subplots(figsize=(10, 6))
+    
+    continent_palette = {
+        "Asia": "#1E90FF",        
+        "Europe": "#C71585",      
+        "Africa": "#32CD32",      
+        "Americas": "#FF4500",    
+        "Oceania": "#48D1CC"      
+    }
+
     sns.scatterplot(
         data=df,
         x="gdpPercap",
         y="lifeExp",
         size="pop",
         hue="continent",
+        palette=continent_palette,
         sizes=(40, 800),
         alpha=0.7,
         ax=ax,
-        legend="full"
+        legend="brief"
     )
-    ax.set_xscale("log")
-    ax.set_title("Gapminder 2007: Life Expectancy vs. GDP per Capita")
-    ax.set_xlabel("GDP per Capita (log scale)")
-    ax.set_ylabel("Life Expectancy")
-    return fig
 
+    ax.set_xscale("log")
+    ax.set_title("World Development in 2007")
+    ax.set_xlabel("GDP per Capita [in USD] (log scale)")
+    ax.set_ylabel("Life Expectancy [in years]")
+
+    # Move legend outside the plot
+    ax.legend(
+        bbox_to_anchor=(1.05, 1),
+        loc="upper left",
+        borderaxespad=0.
+    )
+
+    plt.tight_layout(pad=2.5)
+
+    return fig
 
 if __name__ == "__main__":
     main()
