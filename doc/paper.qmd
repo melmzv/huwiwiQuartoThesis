@@ -81,44 +81,41 @@ This template project explores global development patterns using the Gapminder d
 
 The results are further contrasted with Gapminder’s interactive global development visualizations as of 2021 [@gapminder_health_chart], highlighting the potential and limits of static data analysis. This comparative discussion is provided in @sec-task2. The project concludes with reflections on transparency, reproducibility, and the importance of making research accessible to a broader audience, as discussed in @sec-conclusion.
 
-# Replication of Key Tables and Figures {#sec-task1}
-This section replicates key tables and figures from @ball_how_2008 using daily US stock return data (1972–2006) to establish baseline results. By reconstructing Table 1 (Panel A), Table 2, and Figure 1, it evaluates the robustness of the original findings and highlights any discrepancies. Daily CRSP data ensures accurate measurement of stock reactions around earnings announcements. Replication results are discussed in @sec-results1, with extended analysis in @sec-task2.
+# Descriptive Analysis of Global Development in 2007 {#sec-task1}
+This section explores global development patterns using Gapminder data for the year 2007. It presents a continent-level summary statistics table and a scatter plot showing the relationship between GDP per capita and life expectancy. These outputs serve as a static snapshot of global well-being during that year and demonstrate how transparent and reproducible workflows can be applied to public datasets. Results are later contrasted with Gapminder’s interactive chart from 2021 in @sec-task2.
 
 
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions1}
-In line with @ball_how_2008, this replication examines U.S. earnings announcements and stock returns from 1972 to 2006, following the original study’s sample design, event window (-1 to +1), and return computations. Unlike the original, I omit analyst expectations, focusing solely on returns and announcement dates for simplicity.
+In line with @gapminder_health_chart, the analysis uses the Gapminder dataset available via the `gapminder` Python package. This dataset contains country-level information on population, GDP per capita (inflation-adjusted), and life expectancy for various years in five-year intervals. For this project, I focus exclusively on the year 2007—the most recent year available in the dataset at the time.
 
-To address gaps in methodological detail, several assumptions are applied. Event windows follow CRSP trading calendar conventions, shifting dates when earnings fall on non-trading days [@center_for_research_in_security_prices_crsp_crsp_2024]. While @ball_how_2008 require a minimum of 240 trading days, I relax this constraint, as per course guidance, resulting in a broader sample. All firms in Compustat meeting the quarterly announcement and return data criteria are included, regardless of activity status. The CRSP/Compustat Merged (CCM) database is used to link identifiers, noting that differences from the original study may arise due to updated data (WRDS version: January 2025). As in @ball_how_2008, the analysis is return-based (`ret` in CRSP), excluding bid-ask pricing. Earnings are grouped by announcement date (`rdq`), not fiscal period, to align directly with CRSP trading dates.
+To ensure clarity and consistency, several assumptions are applied. The analysis is restricted to the year 2007, assuming that cross-sectional variation in life expectancy and GDP per capita during that year sufficiently captures key development patterns. No imputation is performed; only complete observations are included. Population is treated as a size indicator in the visualization, assuming that within-year population estimates are comparable across countries. GDP per capita is used in inflation-adjusted international dollars, as provided by Gapminder, without applying additional currency normalization. These choices prioritize interpretability and reproducibility, while acknowledging that dynamic trends and structural differences across regions are not captured in this static snapshot. All data originates from the Gapminder Foundation, which curates and harmonizes publicly available indicators to promote global development awareness [@gapminder_foundation_2021].
 
-These assumptions, together with the procedural details in @sec-replication_steps1, guide the replication of @ball_how_2008 and ensure transparency in design and implementation.
+These assumptions, together with the procedural details in @sec-replication_steps1, guide the replication and ensure transparency in design and implementation.
 
 
 ## Replication Steps {#sec-replication_steps1}
-This section outlines the structured replication process: data pulling, preparation, and analysis, aligned with @ball_how_2008.
+This section outlines the modular workflow used to generate the summary table and figure, aligned with @gapminder_health_chart.
 
 
-**Step 1: Pulling the Data and Managing the Databases**  
-Data from WRDS combines daily CRSP stock returns (dsf) and Compustat quarterly earnings announcements (fundq), linked via the CRSP-Compustat link table (ccmxpf_lnkhist). The `permno` and `gvkey` identifiers ensure accurate firm-year alignment. Key variables are `ret` (returns) and `rdq` (announcement dates), pulled for the full 1972–2023 period used in Tasks 1 and 2.
+**Step 1: Pulling the Data**  
+The data is loaded from the `gapminder` Python package, ensuring version consistency and avoiding external download links. The 2007 subset is saved in `.parquet` format for modern data handling and versioning.
 
 
 **Step 2: Data Preparation**  
-The merged dataset includes CRSP, Compustat, and the link table. After removing irrelevant linking variables, the dataset is trimmed to key variables: `ret`, `rdq`, `fyr`, `permno`, and `gvkey`. Only firms with four earnings announcements per calendar year are retained. Firms are also classified by fiscal year-end (`fyr`) to match Table 2 Panels C–D. Duplicate or incomplete firm-years are excluded.
+The dataset is checked for missing values, which are reported and excluded. All numerical columns are rounded to two decimal places. No transformations, sorting, or new variables are added to preserve the original data structure.
 
 
 **Step 3: Analysis Implementation and Reproduction of Tables and Figure**  
-BHRs are computed using the cumulative return formula per @gundersen_returns_2022. Cross-sectional regressions are then run for each firm-year to replicate Table 1, Table 2, and Figure 1 from the original paper.
+In the final step, two key outputs are generated to illustrate global development patterns in 2007. First, a summary table is produced, aggregating life expectancy, GDP per capita, and total population figures by continent. This table provides a concise overview of regional development differences. Second, a scatter plot is created to visualize the relationship between GDP per capita and life expectancy, where each country’s bubble size corresponds to its population and color represents its continent.
 
 
 ## Results {#sec-results1}
-This section compares the static 2007 snapshot with Gapminder’s dynamic global development chart @fig-gapminder_original [@gapminder_health_chart].
+This section presents a static snapshot of global development in 2007 using the Gapminder dataset. The analysis includes both a summary table by continent and a scatter plot visualizing the relationship between GDP per capita and life expectancy. The figure and table illustrate clear regional disparities in wealth and health outcomes—highlighting, for example, the relatively high life expectancy in Europe and Oceania compared to lower-income regions like Africa.
 
-```{r}
-#| label: fig-gapminder_original
-#| fig-cap: "Original World Health Chart 2021 from Gapminder Foundation"
-#| echo: false
-#| fig-align: center
-knitr::include_graphics("countries_health_wealth_2021.pdf")
-```
+The summary table (see @tbl-gapminder2007_summary) provides aggregated statistics by continent and complements the visual by quantifying central tendencies and demographic scale.
+
+The scatter plot (see @fig-gapminder2007_plot) shows a positive relationship between economic prosperity and life expectancy, with bubble sizes reflecting country population. The logarithmic x-axis reveals substantial income inequality while preserving interpretability across income levels. The legend is placed outside the plot area for clarity.
+
 
 
 # Cross-Country Replication {#sec-task2}
@@ -159,6 +156,15 @@ Comparing the replication results with those from @ball_how_2008 reveals both si
 
 The post-2000 period in the replication shows more inconsistent abnormal  R²  values, possibly reflecting evolving market structures, shifts in disclosure practices, and increased earnings informativeness following regulatory changes (e.g., IFRS adoption, post-SOX adjustments, different financial market structure). The pronounced fluctuations could also be driven by global financial crisis, Canada's higher market concentration, fewer publicly traded firms, and potential regulatory differences, which may affect earnings informativeness and stock return patterns. The variability in slope coefficients further suggests that earnings announcements’ impact on stock returns is less stable than in prior decades, potentially due to differences in investor response.
 
+
+This section compares the static 2007 snapshot with Gapminder’s dynamic global development chart @fig-gapminder_original [@gapminder_health_chart].
+```{r}
+#| label: fig-gapminder_original
+#| fig-cap: "Original World Health Chart 2021 from Gapminder Foundation"
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("countries_health_wealth_2021.pdf")
+```
 
 # Conclusion {#sec-conclusion}
 This thesis template demonstrates how the TRR 266 framework can be applied to structure a reproducible and transparent empirical accounting study. Using Quarto proved to be a particularly effective and user-friendly solution for structuring and rendering the thesis. It facilitates seamless integration of code, results, and narrative, making it an ideal tool for students at the Institute of Accounting and Auditing or the Finance Group at the School of Business and Economics, HU Berlin. Thanks for reading!
