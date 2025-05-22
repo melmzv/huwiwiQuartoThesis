@@ -63,7 +63,6 @@ This thesis template explores global development patterns using the publicly ava
 \setlength{\parindent}{0em}
 \begin{tabular}{@{}ll}
 \textbf{GDP}   & Gross Domestic Product \\
-\textbf{IDE}   & Integrated Development Environment \\
 \textbf{TREAT} & TRR 266 Template for Reproducible Empirical Accounting Research \\
 \end{tabular}
 
@@ -88,7 +87,7 @@ This section explores global development patterns using Gapminder data for the y
 ## Research Design Choices and Assumptions {#sec-research_design_assumptions1}
 In line with @gapminder_health_chart, the analysis uses the Gapminder dataset available via the `gapminder` Python package. This dataset contains country-level information on population, GDP per capita (inflation-adjusted), and life expectancy for various years in five-year intervals. For this project, I focus exclusively on the year 2007—the most recent year available in the dataset at the time.
 
-To ensure clarity and consistency, several assumptions are applied. The analysis is restricted to the year 2007, assuming that cross-sectional variation in life expectancy and GDP per capita during that year sufficiently captures key development patterns. No imputation is performed; only complete observations are included. Population is treated as a size indicator in the visualization, assuming that within-year population estimates are comparable across countries. GDP per capita is used in inflation-adjusted international dollars, as provided by Gapminder, without applying additional currency normalization. These choices prioritize interpretability and reproducibility, while acknowledging that dynamic trends and structural differences across regions are not captured in this static snapshot. All data originates from the Gapminder Foundation, which curates and harmonizes publicly available indicators to promote global development awareness [@gapminder_foundation_2021].
+To ensure clarity and consistency, several assumptions are applied. The analysis is restricted to the year 2007, assuming that cross-sectional variation in life expectancy and GDP per capita during that year sufficiently captures key development patterns. No imputation is performed; only complete observations are included. Population is treated as a size indicator in the visualization, assuming that within-year population estimates are comparable across countries. GDP per capita is used in inflation-adjusted international dollars, as provided by Gapminder, without applying additional currency normalization. These choices prioritize interpretability and reproducibility, while acknowledging that dynamic trends and structural differences across regions are not captured in this static snapshot. All data originates from the Gapminder Foundation, which curates and harmonizes publicly available indicators to promote global development awareness [@gapminder_health_chart].
 
 These assumptions, together with the procedural details in @sec-replication_steps1, guide the replication and ensure transparency in design and implementation.
 
@@ -110,11 +109,19 @@ In the final step, two key outputs are generated to illustrate global developmen
 
 
 ## Results {#sec-results1}
-This section presents a static snapshot of global development in 2007 using the Gapminder dataset. The analysis includes both a summary table by continent and a scatter plot visualizing the relationship between GDP per capita and life expectancy. The figure and table illustrate clear regional disparities in wealth and health outcomes—highlighting, for example, the relatively high life expectancy in Europe and Oceania compared to lower-income regions like Africa.
+This section presents a static snapshot of global development in 2007 using the Gapminder dataset. The analysis includes both a summary table by continent and a scatter plot visualizing the relationship between gross domestic product (GDP) per capita and life expectancy. The figure and table illustrate clear regional disparities in wealth and health outcomes—highlighting, for example, the relatively high life expectancy in Europe and Oceania compared to lower-income regions like Africa.
 
-The summary table (see @tbl-gapminder2007_summary) provides aggregated statistics by continent and complements the visual by quantifying central tendencies and demographic scale.
+The summary table (see @tbl-gapminder2007_summary) provides aggregated statistics by continent and complements the visual by quantifying central tendencies and demographic scale. It presents average and median values for life expectancy and GDP per capita, along with total population and number of countries represented per continent in 2007.
 
-The scatter plot (see @fig-gapminder2007_plot) shows a positive relationship between economic prosperity and life expectancy, with bubble sizes reflecting country population. The logarithmic x-axis reveals substantial income inequality while preserving interpretability across income levels. The legend is placed outside the plot area for clarity.
+@fig-gapminder2007_plot illustrates a scatter plot based on Gapminder’s 2007 data, mapping GDP per capita against life expectancy. Each country is represented as a bubble whose size corresponds to its population and whose color indicates its continent. The plot reveals a positive relationship between economic prosperity and life expectancy. The use of a logarithmic x-axis emphasizes differences in income levels across regions while maintaining interpretability across a wide range of values. 
+
+```{r}
+#| label: fig-gapminder2007_plot
+#| fig-cap: "Gapminder 2007: Life Expectancy vs. GDP per Capita"
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("../output/gapminder_figure.png")
+```
 
 
 

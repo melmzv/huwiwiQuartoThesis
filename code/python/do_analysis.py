@@ -27,9 +27,7 @@ def main():
     log.info("Creating and saving figure ...")
     fig = plot_figure(df)
     fig.savefig(cfg["gapminder_figure_png"])
-    with open(cfg["gapminder_figure_pickle"], "wb") as f:
-        pickle.dump(fig, f)
-    log.info("Figure saved as PNG and pickle.")
+    log.info("Figure saved as PNG.")
 
 
 def compute_summary(df):
@@ -48,7 +46,7 @@ def compute_summary(df):
         )
         .reset_index()
     )
-    
+
     # Round numeric columns to 0 decimal places
     numeric_cols = summary.select_dtypes(include="number").columns
     summary[numeric_cols] = summary[numeric_cols].round(2)
@@ -59,13 +57,13 @@ def compute_summary(df):
 def plot_figure(df):
     """Scatter plot: GDP per capita vs. Life Expectancy (bubble size = pop)."""
     fig, ax = plt.subplots(figsize=(10, 6))
-    
+
     continent_palette = {
-        "Asia": "#1E90FF",        
-        "Europe": "#C71585",      
-        "Africa": "#32CD32",      
-        "Americas": "#FF4500",    
-        "Oceania": "#48D1CC"      
+        "Asia": "#1E90FF",
+        "Europe": "#C71585",
+        "Africa": "#32CD32",
+        "Americas": "#FF4500",
+        "Oceania": "#48D1CC"
     }
 
     sns.scatterplot(
@@ -96,6 +94,7 @@ def plot_figure(df):
     plt.tight_layout(pad=2.5)
 
     return fig
+
 
 if __name__ == "__main__":
     main()
