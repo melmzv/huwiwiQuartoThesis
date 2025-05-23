@@ -47,6 +47,48 @@ header-includes:
 
 \pagebreak
 
+```{python}
+#| echo: false
+#| output: false
+
+import pickle
+import pandas as pd
+
+# Load the prepared summary table
+with open('../output/summary_statistics.pickle', 'rb') as f:
+    summary = pickle.load(f)
+
+# Clean column names for LaTeX rendering
+def escape_special_characters(df):
+    df.columns = [col.replace('_', '\\_').replace('#', '\\#') for col in df.columns]
+    return df
+
+# Formatting for float values
+def custom_float_format(x):
+    return f"{x:.2f}" if pd.notnull(x) else ""
+
+# Function to prep LaTeX table
+def prep_latex_table(df, caption=None, label=None):
+    df = escape_special_characters(df.reset_index(drop=True))
+    num_columns = len(df.columns)
+    column_format = 'l' + 'r' * (num_columns - 1)
+    latex_table = df.to_latex(
+        column_format=column_format,
+        index=False,
+        float_format=custom_float_format,
+    )
+    latex_table_lines = [
+        "\\begin{table}",
+        "\\centering",
+        "\\resizebox{\\textwidth}{!}{%",
+        latex_table,
+        "}",
+        f"\\caption{{{caption}}}" if caption else "",
+        f"\\label{{{label}}}" if label else "",
+        "\\end{table}"
+    ]
+    return "\n".join(line for line in latex_table_lines if line)
+```
 
 \clearpage
 # Acknowledgements {-}
@@ -113,17 +155,28 @@ This section presents a static snapshot of global development in 2007 using the 
 
 The summary table (see @tbl-gapminder2007_summary) provides aggregated statistics by continent and complements the visual by quantifying central tendencies and demographic scale. It presents average and median values for life expectancy and GDP per capita, along with total population and number of countries represented per continent in 2007.
 
+```{python}
+#| label: tbl-gapminder2007_summary
+#| tbl-cap: "Summary Statistics by Continent (Gapminder 2007)"
+#| echo: false
+#| output: asis
+
+print(prep_latex_table(summary))
+print("\n\\caption*{\\textnormal{This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007.}}")
+```
+
 @fig-gapminder2007_plot illustrates a scatter plot based on Gapminder’s 2007 data, mapping GDP per capita against life expectancy. Each country is represented as a bubble whose size corresponds to its population and whose color indicates its continent. The plot reveals a positive relationship between economic prosperity and life expectancy. The use of a logarithmic x-axis emphasizes differences in income levels across regions while maintaining interpretability across a wide range of values. 
 
-```{r}
+```{python}
 #| label: fig-gapminder2007_plot
 #| fig-cap: "Gapminder 2007: Life Expectancy vs. GDP per Capita"
 #| echo: false
-#| fig-align: center
-knitr::include_graphics("../output/gapminder_figure.png")
+
+from IPython.display import Image
+Image(filename="../output/gapminder_figure.png")
 ```
 
-
+Together, these outputs provide a clear and interpretable overview of global development disparities, offering insights into how income and health outcomes align across continents at a given point in time.
 
 # Cross-Country Replication {#sec-task2}
 This section generalizes the analysis to a non-U.S. market by replicating Figure 1 using 1972–2023 data from Canada. This involves aligning CRSP/Compustat variables with Worldscope and Datastream equivalents while accounting for differences in reporting standards, market liquidity, and institutional context. Though the core methodology is retained, adapting it to international data demands careful mapping and interpretation.
@@ -165,12 +218,13 @@ The post-2000 period in the replication shows more inconsistent abnormal  R²  v
 
 
 This section compares the static 2007 snapshot with Gapminder’s dynamic global development chart @fig-gapminder_original [@gapminder_health_chart].
-```{r}
+```{python}
 #| label: fig-gapminder_original
 #| fig-cap: "Original World Health Chart 2021 from Gapminder Foundation"
 #| echo: false
-#| fig-align: center
-knitr::include_graphics("countries_health_wealth_2021.pdf")
+
+from IPython.display import Image
+Image(filename="countries_health_wealth_2021-1.png")
 ```
 
 # Conclusion {#sec-conclusion}

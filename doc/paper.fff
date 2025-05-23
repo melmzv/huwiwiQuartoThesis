@@ -2,7 +2,7 @@
 
 \centering{
 
-\includegraphics{../output/gapminder_figure.png}
+\includegraphics{paper_files/figure-pdf/fig-gapminder2007_plot-output-1.png}
 
 }
 
@@ -16,7 +16,7 @@ vs.~GDP per Capita}
 
 \centering{
 
-\includegraphics{countries_health_wealth_2021.pdf}
+\includegraphics{paper_files/figure-pdf/fig-gapminder_original-output-1.png}
 
 }
 

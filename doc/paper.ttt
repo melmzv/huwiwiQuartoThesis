@@ -1,0 +1,28 @@
+\begin{table}
+
+\caption{\label{tbl-gapminder2007_summary}Summary Statistics by
+Continent (Gapminder 2007)}
+
+\centering{
+
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+continent & Mean\_LifeExp & Median\_LifeExp & Mean\_GDPpc & Median\_GDPpc & Total\_Pop & Num\_Countries \\
+\midrule
+Africa & 54.79 & 53.00 & 3088.98 & 1452.00 & 929539692 & 52 \\
+Americas & 73.64 & 73.00 & 11003.04 & 8948.00 & 898871184 & 25 \\
+Asia & 70.82 & 72.00 & 12473.00 & 4471.00 & 3811953827 & 33 \\
+Europe & 77.63 & 78.50 & 25054.40 & 28054.00 & 586098529 & 30 \\
+Oceania & 80.50 & 80.50 & 29810.00 & 29810.00 & 24549947 & 2 \\
+\bottomrule
+\end{tabular}
+
+}
+
+\caption*{\textnormal{This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007.}}
+
+}
+
+\end{table}
