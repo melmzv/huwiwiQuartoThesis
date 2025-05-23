@@ -21,13 +21,16 @@ ident: yes
 always_allow_html: yes
 number-sections: true
 header-includes:
-  - \usepackage[nolists]{endfloat}
+  - \usepackage[nolists]{endfloat} # if commenting out, you place figures&tables inside text
+  - \usepackage{float} # in order to place tables correctly
+  - \floatplacement{table}{H} # in order to place tables correctly
   - \usepackage{setspace}\onehalfspacing # 1.5 line spacing acc. to Accounting guidelines
   - \setlength{\parindent}{4em}
   - \setlength{\parskip}{0em}
   - \usepackage[hang,flushmargin]{footmisc}
   - \usepackage{caption}
-  - \captionsetup[table]{skip=24pt,font=bf}
+  - \captionsetup[table]{skip=15pt,font=bf} # was 24pt initially
+  - \captionsetup[figure]{skip=15pt, font=bf} # consistency with tables
   - \usepackage{array}
   - \usepackage{threeparttable}
   - \usepackage{adjustbox}
@@ -169,7 +172,7 @@ The summary table (see @tbl-gapminder2007_summary) provides aggregated statistic
 #| tbl-cap: "Summary Statistics by Continent (Gapminder 2007)"
 #| echo: false
 #| output: asis
-#| 
+
 print(prep_latex_table(
     summary,
     description="\\fontsize{10pt}{12pt}\\selectfont This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007."
