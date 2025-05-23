@@ -20,8 +20,7 @@ Oceania & 80.50 & 80.50 & 29810.00 & 29810.00 & 24549947 & 2 \\
 \end{tabular}
 
 }
-
-\caption*{\textnormal{This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007.}}
+\caption*{\textnormal{\fontsize{10pt}{12pt}\selectfont This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007.}}
 
 }
 

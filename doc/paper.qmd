@@ -68,23 +68,32 @@ def custom_float_format(x):
     return f"{x:.2f}" if pd.notnull(x) else ""
 
 # Function to prep LaTeX table
-def prep_latex_table(df, caption=None, label=None):
+# Function to prep LaTeX table with optional description
+def prep_latex_table(df, caption=None, label=None, description=None):
     df = escape_special_characters(df.reset_index(drop=True))
     num_columns = len(df.columns)
     column_format = 'l' + 'r' * (num_columns - 1)
+    
     latex_table = df.to_latex(
         column_format=column_format,
         index=False,
         float_format=custom_float_format,
+        escape=False
     )
+
+    latex_caption = f"\\caption{{{caption}}}" if caption else ""
+    latex_description = f"\\caption*{{\\textnormal{{{description}}}}}" if description else ""
+    latex_label = f"\\label{{{label}}}" if label else ""
+
     latex_table_lines = [
         "\\begin{table}",
         "\\centering",
         "\\resizebox{\\textwidth}{!}{%",
         latex_table,
-        "}",
-        f"\\caption{{{caption}}}" if caption else "",
-        f"\\label{{{label}}}" if label else "",
+        "}",  # End resizebox
+        latex_caption,
+        latex_description,
+        latex_label,
         "\\end{table}"
     ]
     return "\n".join(line for line in latex_table_lines if line)
@@ -160,9 +169,11 @@ The summary table (see @tbl-gapminder2007_summary) provides aggregated statistic
 #| tbl-cap: "Summary Statistics by Continent (Gapminder 2007)"
 #| echo: false
 #| output: asis
-
-print(prep_latex_table(summary))
-print("\n\\caption*{\\textnormal{This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007.}}")
+#| 
+print(prep_latex_table(
+    summary,
+    description="\\fontsize{10pt}{12pt}\\selectfont This table reports the mean and median life expectancy and GDP per capita, along with the total population and number of countries per continent for the year 2007."
+))
 ```
 
 @fig-gapminder2007_plot illustrates a scatter plot based on Gapminder’s 2007 data, mapping GDP per capita against life expectancy. Each country is represented as a bubble whose size corresponds to its population and whose color indicates its continent. The plot reveals a positive relationship between economic prosperity and life expectancy. The use of a logarithmic x-axis emphasizes differences in income levels across regions while maintaining interpretability across a wide range of values. 
