@@ -6,6 +6,7 @@ Continent (Gapminder 2007)}
 \centering{
 
 \centering
+\fontsize{12pt}{16pt}\selectfont
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule

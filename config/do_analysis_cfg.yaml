@@ -2,7 +2,6 @@
 gapminder_2007_input: "data/generated/gapminder_2007_prepared.parquet"
 
 # --- Output: Summary Statistics ---
-summary_statistics_csv: "output/summary_statistics.csv"
 summary_statistics_pickle: "output/summary_statistics.pickle"
 
 # --- Output: Figure ---

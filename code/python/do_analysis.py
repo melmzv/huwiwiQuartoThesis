@@ -18,7 +18,6 @@ def main():
     # === Summary statistics ===
     log.info("Computing summary statistics by continent ...")
     summary = compute_summary(df)
-    summary.to_csv(cfg["summary_statistics_csv"], index=False)
     with open(cfg["summary_statistics_pickle"], "wb") as f:
         pickle.dump(summary, f)
     log.info("Summary statistics saved.")
