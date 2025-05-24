@@ -1,3 +1,1 @@
-# Configuration for pulling Gapminder data
-
 save_path_2007_parquet: 'data/pulled/gapminder_2007.parquet'

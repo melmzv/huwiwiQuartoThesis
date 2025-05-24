@@ -20,7 +20,7 @@ def main():
 
     os.makedirs(os.path.dirname(cfg['output_path']), exist_ok=True)
     df.to_parquet(cfg['output_path'])
-    log.info("Prepared data saved.")
+    log.info("Prepared data is now saved.")
 
 if __name__ == '__main__':
     main()

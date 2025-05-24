@@ -199,7 +199,7 @@ This section compares the 2007 snapshot with Gapminder’s 2021 visualization to
 ## Comparative Assumptions and Design Choices {#sec-research_design_assumptions3}
 This section outlines the assumptions for comparing the 2007 Gapminder dataset to a visualization of global development patterns in 2021.
 
-The assumptions guiding the comparison are as follows: visual inspection is used to assess trends in life expectancy and income per capita; bubble size reflects each country’s population, as defined by Gapminder; and no new calculations are applied - the 2021 snapshot displays curated values from the Gapminder Foundation [-@gapminder_health_chart].
+The assumptions guiding the comparison are as follows: visual inspection is used to assess trends in life expectancy and income per capita; bubble size reflects each country’s population, as defined by Gapminder; no new calculations are applied - the 2021 snapshot displays curated values from the Gapminder Foundation [-@gapminder_health_chart].
 
 The relationship between country-level variables and their graphical representation in the visualizations can be summarized as shown in @eq-bubble_mapping:
 $$
