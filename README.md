@@ -2,26 +2,23 @@
 
 ## Why use this template?
 
-This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses—especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute of Accounting and Auditing](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf) formatting guidelines—just clone the repo and render the template! :sparkles:
+This repository provides a modern, modular Quarto + LaTeX template tailored to students writing empirical theses - especially within the Institute of Accounting and Auditing and the Finance Group at Humboldt-Universität zu Berlin. The template is fully compliant with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute of Accounting and Auditing](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf) formatting guidelines - just clone the repo and render the template! :sparkles:
 
-This template was developed as part of advanced empirical coursework (see my profile for completed projects), specifically for a replication and extension study that followed open science principles while integrating programming skills and institutional knowledge. Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow.
-
-The default branch, `main`, is a stripped-down version of the template containing only the Python workflow. This branch was cloned initially from the TREAT repository, focusing solely on the Python workflow and utulizing the Python libraries listed in the `requirements.txt` file.
+Traditional empirical workflows often involve manual data collection, fragmented scripts, and disconnected reporting, which makes reproducibility and collaboration difficult. This template, based on the TRR 266 Template for Reproducible Empirical Accounting Research (TREAT), addresses those challenges by offering a reproducible, modular workflow. It integrates Quarto for document rendering, Python for data processing, and LaTeX for high-quality typesetting, all within a single, cohesive framework. This allows you to focus on your research rather than the technical details of formatting and data management.
 
 ## Why use Quarto?
 
 Quarto enables seamless integration of code, narrative, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows. Unlike LaTeX, which often requires separate tools and manual steps to embed code results, Quarto allows you to combine Python or R code, plots, regression tables, and formatted text in one source.
 
-This makes it ideal for empirical research where transparency, version control, and automation are essential. By choosing Quarto, you benefit from a modern and flexible writing system that ensures your analysis is fully transparent and reproducible—from raw data to final PDF.
+This makes it ideal for empirical research where transparency, version control, and automation are essential, ensuring that your analysis is fully transparent and reproduciblef - from raw data to final PDF.
 
 Still not impressed? You might want to read [this blog post by Guillaume Dehaene](https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html), which explains why **"Quarto is better"** for modern academic workflows.
 
 > *Why not just use Overleaf?*  
 
-- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on an internet connection and browser performance, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
+- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on internet connection, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
 - Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
-
-Take a look at useful VS Code extensions that can enhance your Quarto experience below :point_down:
+- Quarto, on the other hand, allows you to work offline, ensuring that your research is always accessible.
 
 <p align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF"/>
@@ -53,9 +50,9 @@ You start by setting up a few tools on your system:
 
 :open_file_folder: Next, explore the repository to familiarize yourself with its folders and their contents:
 
-- `config`: This directory holds configuration files that are being called by the program scripts in the `code` directory. We try to keep the configurations separate from the code to make it easier to adjust the workflow to your needs. In this project, `pull_data_cfg.yaml` file outlines the variables and settings needed to extract the necessary data from the WRDS databases. The `prepare_data_cfg.yaml` file specifies the configurations for preprocessing and cleaning the data before analysis, ensuring consistency and accuracy in the dataset and following the paper filtration requirements. The `do_analysis_cfg.yaml` file contains parameters and settings for performing the final analysis on the extracted earnings data.
+- `config`: This directory holds configuration files that are being called by the program scripts in the `code` directory. We try to keep the configurations separate from the code to make it easier to adjust the workflow to your needs. In this project, `pull_data_cfg.yaml` file outlines the variables and settings needed to extract the necessary data from the Gapminder database. The `prepare_data_cfg.yaml` file specifies the configurations for preprocessing and cleaning the data before analysis, ensuring consistency and accuracy in the dataset and following the paper filtration requirements. The `do_analysis_cfg.yaml` file contains parameters and settings for performing the final analysis on the extracted earnings data.
 
-- `code`: This directory holds program scripts used to pull data from WRDS directly using python, prepare the data, run the analysis and create the output files (a replicated (pickle) output). Using pickle instead of Excel is more preferable as it is a more Pythonic data format, enabling faster read and write operations, preserving data types more accurately, and providing better compatibility with Python data structures and libraries. 
+- `code`: This directory holds program scripts used to pull data from Gapminder directly using python, prepare the data, run the analysis and create the output files (a replicated (pickle) output). Using pickle instead of Excel is more preferable as it is a more Pythonic data format, enabling faster read and write operations, preserving data types more accurately, and providing better compatibility with Python data structures and libraries. 
 <p align="center">
   <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*eFuMBvt4HtOK1YFb-SQ2KA.png" alt="Pickling process illustration" width="400">
 </p>
@@ -84,7 +81,7 @@ You also see an `output` directory but it is empty. Why? Because the output pape
 
 ### How do I create the output?
 
-Assuming that you have database (WRDS in this example) access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
+Assuming that you have database access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
 
 1. Click on the `Use this template` button on the top right of the repository and choose `Create a new repository`. Provide the repository with a name, a description, and select whether it should be public or private. Then click `Create repository`.
 2. Clone the repository to your local machine. Open the repository in VS Code and launch a new terminal.
@@ -99,17 +96,13 @@ source venv/bin/activate # Activate the virtual environment on Linux or macOS.
 You can deactivate the virtual environment by running `deactivate`.
 
 4. With an active virtual environment, you can install the required packages by running `pip install -r requirements.txt` in the terminal. This will install the required packages for the project in the virtual environment.
-5. Copy the file `_secrets.env` to `secrets.env` in the project main directory. Then edit the `secret.env` by adding your WRDS credentials.
+5. If your project requires access to a private database (e.g. WRDS) rather than open‐source Gapminder data, copy the file `_secrets.env` to `secrets.env` in the project main directory. Then edit the `secret.env` by adding your database credentials.
 
 > [!CAUTION]
 > Ensure your database credentials are stored securely in `secrets.env`. Sharing this file or exposing its contents could compromise access to sensitive data.
 
-> [!NOTE]
-> First time you run the `pull_wrds_data.py` script, it will ask you to enter your WRDS credentials. You should enter them again and choose `y` to save the `.pgpass` file. This will save your credentials in the `.pgpass` file so that you do not need to enter them again.
-> Note that inability to see the password while typing is standard behavior for security reasons. When prompted, type your password even though it won’t be displayed and press Enter. When WRDS prompts you to create a .pgpass file, it’s asking if you want to store your login credentials for easier future access. Answer ‘y’ to create the file now and follow the instructions, or ‘n’ if you prefer to enter your password each time or create the file manually later.
-
 6. Run `make all` in the terminal. I use the [Makefile Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) in VS Code to run the makefile and create the necessary output files to the `output` directory.
-I highly recommend using the Makefile! Otherwise, you can run the following commands in the terminal:
+Otherwise, you can run the following commands in the terminal:
 
 ```shell
 python code/python/pull_wrds_data.py
@@ -123,10 +116,6 @@ rm -f doc/paper.ttt doc/paper.fff
 
 ### Setting up for Reproducible Empirical Research
 
-This code base, adapted from TREAT, should give you an overview on how the template is supposed to be used for a thesis project.
-
-> **📌 Note:** This repository does not contain any **pull requests** because it is an individual project without ongoing code reviews or feature-based branching workflows. However, it includes a **release** after project finish, allowing future collaborative research to build upon this work. 
-
 To start a new reproducible thesis project, follow these steps: 
 1. Clone the repository by clicking “Use this Template” at the top of the file list on GitHub. 
 2. Remove any files that you don’t need for your specific project. 
@@ -135,7 +124,7 @@ To start a new reproducible thesis project, follow these steps:
 
 ### Licensing
 
-This project utilizes the template used in collaborative research center [TRR 266 Accounting for Transparency](https://accounting-for-transparency.de), that is centered on workflows that are typical in the accounting and finance domain.
+This project utilizes the template used in collaborative research center [TRR 266 Accounting for Transparency](https://accounting-for-transparency.de).
 
 The repository is licensed under the MIT license. I would like to give the following credit:
 
