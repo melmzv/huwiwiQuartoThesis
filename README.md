@@ -4,15 +4,15 @@
 
 This repository is a modular Quarto + LaTeX template for empirical theses at HU Berlin’s Institute of Accounting & Auditing and Finance Group. The template complies with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute guidelines](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf). Simply clone and render template! :sparkles:
 
-Traditional workflows can be fragmented and hard to reproduce. Based on the TRR 266 TREAT template, this project combines Quarto for rendering, Python for data processing, and LaTeX for typesetting in one seamless framework - so you can focus on research rather than the technical details of formatting and data management.
+Based on the TRR 266 TREAT template, this project combines Quarto for rendering, Python for data processing, and LaTeX for typesetting in one seamless framework - so you can focus on research rather than the technical details of formatting and data management.
 
-This template also showcases a complete example using the public [Gapminder](https://www.gapminder.org/) dataset: from pulling and preparing the data, to computing summary statistics and generating plots, all the way through to a fully rendered PDF. Use it as a blueprint for your own reproducible empirical thesis.
+This template also showcases a complete thesis example using the public [Gapminder](https://www.gapminder.org/) dataset: from pulling and preparing the data, to computing summary statistics and generating plots, all the way through to a fully rendered PDF. Use it as a blueprint for your own reproducible empirical thesis.
 
 ## Why use Quarto?
 
 Quarto lets you embed code, plots, tables, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows, which often require separate tools and manual steps to embed code results.
 
-This makes it ideal for empirical research where transparency, version control, and automation are essential, ensuring that your analysis is fully transparent and reproducible - from raw data to final PDF.
+This makes Quarto ideal for empirical research where transparency, version control, and automation are essential, ensuring that your analysis is fully transparent and reproducible - from raw data to final PDF.
 
 Still not impressed? You might want to read [this blog post by Guillaume Dehaene](https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html), which explains why **"Quarto is better"** for modern academic workflows.
 
@@ -20,7 +20,7 @@ Still not impressed? You might want to read [this blog post by Guillaume Dehaene
 
 - While Overleaf is a convenient cloud-based platform, it is still limited by its reliance on internet connection, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
 - Plus, Zotero integration - necessary for managing references - is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
-- Quarto, on the other hand, allows you to work offline - ensuring your research is always accessible - and integrates with Git for full version control, so if your laptop breaks, your work is safe.
+- Quarto, on the other hand, allows you to work offline - ensuring your research is always accessible - and integrates with Git for full version control and collaboration (branching, pull requests), so you get the same collaborative benefits as Overleaf plus the safety of Git: if your laptop breaks, your work is safe.
 
 <p align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF"/>
@@ -65,9 +65,8 @@ You start by setting up a few tools on your system:
 
 - `doc`: This directory contains Quarto file (.qmd) that include text and program instructions for the paper rendering. The file is rendered through the Quarto process using Python and the VS Code extension, integrating code, results, and literal text seamlessly.
 
-> **🌳 Tip:** To easily present your thesis directory structure (e.g., to your supervisor), you can copy and paste it directly from within VS Code using the [Extension](https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&ssr=false#overview).
-
 > [!TIP]
+> - To easily present your thesis directory structure (e.g., to your supervisor), you can copy and paste it directly from within VS Code using the [Extension](https://marketplace.visualstudio.com/items?itemName=Fuzionix.file-tree-extractor&ssr=false#overview).
 > - Download the [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=axelrindle.duplicate-file) for duplicating files. This will streamline your workflow by allowing you to duplicate files directly within Visual Studio Code, rather than manually copying and pasting in Finder (Mac) or File Explorer (Windows). :wink:
 > - Another fresh tip to synchronise vertical or horizontal scrolling in splitted view in VS Code. To enable it, type in the Command Palette the action name `Toggle Locked Scrolling Across Editors`. This is particularly useful when aligning the config file with the corresponding Python file, for example. :woman_technologist:
 > - Here is a new tip for [references.bib](doc/references.bib) file! If you're working with multiple citation formats, consider setting up Zotero's Quick Copy feature to directly copy BibTeX-formatted references into the `bib` file. This can save time and ensure consistency in your bibliography. Learn more about the Quick Copy feature :point_right: [here](https://www.zotero.org/support/creating_bibliographies#quick_copy).
@@ -117,9 +116,9 @@ rm -f doc/paper.ttt doc/paper.fff
 ```
 6. Eventually, you will be greeted with the "paper.pdf" file in the `output` directory. You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
 > [!NOTE]
-> I have saved a copy of rendered "paper.pdf" in the `doc` directory for quick GitHub preview .
+> I have saved a copy of rendered "paper.pdf" in the `doc` directory for your quick GitHub preview.
 
-## Setting up for Reproducible Empirical Research
+## Setting up your Thesis Project
 
 To start your own thesis project, follow same steps as in [previous section](#how-do-i-create-the-template-output) but notice the following: 
 1. Remove any files that you don’t need for your specific project. 
