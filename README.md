@@ -81,10 +81,16 @@ You also see an `output` directory but it is empty. Why? Because the output pape
 
 ### How do I create the template output?
 
-Assuming that you have database access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
+Assuming that you have followed steps [above](#where-do-i-start), this should be relatively straightforward.
 
-1. Click on the `Use this template` button on the top right of the repository and choose `Create a new repository`. Provide the repository with a name, a description, and select whether it should be public or private. Then click `Create repository`.
-2. Clone the repository to your local machine. Open the repository in VS Code and launch a new terminal.
+1. Clone the repository to your local machine by running the following command in your terminal:
+
+```bash
+cd /path/to/your/projects && \                       # navigate to your projects folder
+git clone https://github.com/melmzv/huwiwiQuartoThesis.git && \  # clone the repo
+cd huwiwiQuartoThesis                                # enter the repo directory 
+```
+2. Open the repository in VS Code and launch a new terminal.
 3. It is advisable to create a virtual environment for the project:
 
 ```shell
@@ -93,33 +99,36 @@ source venv/bin/activate # Activate the virtual environment on Linux or macOS.
 # venv\Scripts\activate.bat # If you are using Windows Command Prompt.
 # venv/Script/Activate.ps1 # If you are using Windows PowerShell and have allowed script execution.
 ```
-You can deactivate the virtual environment by running `deactivate`.
 
 4. With an active virtual environment, you can install the required packages by running `pip install -r requirements.txt` in the terminal. This will install the required packages for the project in the virtual environment.
-5. If your project requires access to a private database (e.g. WRDS) rather than open‐source Gapminder data, copy the file `_secrets.env` to `secrets.env` in the project main directory. Then edit the `secret.env` by adding your database credentials.
 
-> [!CAUTION]
-> Ensure your database credentials are stored securely in `secrets.env`. Sharing this file or exposing its contents could compromise access to sensitive data.
-
-6. Run `make all` in the terminal. I use the [Makefile Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) in VS Code to run the makefile and create the necessary output files to the `output` directory.
+5. Run `make all` in the terminal. I use the [Makefile Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools) in VS Code to run the makefile and create the necessary output files to the `output` directory.
 Otherwise, you can run the following commands in the terminal:
 
 ```shell
-python code/python/pull_wrds_data.py
+python code/python/pull_data.py
 python code/python/prepare_data.py
 python code/python/do_analysis.py
 quarto render doc/paper.qmd
 mv doc/paper.pdf output
 rm -f doc/paper.ttt doc/paper.fff
 ```
-7. Eventually, you will be greeted with the "paper.pdf" file in the `output` directory. You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
+6. Eventually, you will be greeted with the "paper.pdf" file in the `output` directory. You have successfully used an open science resource and reproduced the analysis. Congratulations! :rocket:
+> [!NOTE]
+> I have saved a copy of rendered "paper.pdf" in the `doc` directory for quick GitHub preview .
 
-### Setting up for Reproducible Empirical Research
+## Setting up for Reproducible Empirical Research
 
-To start a new reproducible thesis project, follow these steps: 
-1. Clone the repository by clicking “Use this Template” at the top of the file list on GitHub. 
-2. Remove any files that you don’t need for your specific project. 
-3. Over time, you can fork this repository and customize it to develop a personalized template that fits your workflow and preferences.
+To start your own thesis project, follow same steps as in [previous section](#how-do-i-create-the-template-output) but notice the following: 
+1. Remove any files that you don’t need for your specific project. 
+2. If your project requires access to a private database (e.g. WRDS) rather than open‐source Gapminder data, copy the file `_secrets.env` to `secrets.env` in the project main directory. Then edit the `secret.env` by adding your database credentials.
+
+> [!CAUTION]
+> Ensure your database credentials are stored securely in `secrets.env`. Sharing this file or exposing its contents could compromise access to sensitive data.
+
+
+## Contributing
+If you have suggestions for improvements, bug fixes, or new features, please feel free to fork repo and submit a pull request or open an issue. Contributions are welcome! :raised_hands:
 
 
 ## Licensing
