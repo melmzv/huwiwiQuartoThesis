@@ -14,7 +14,7 @@ This makes it ideal for empirical research where transparency, version control, 
 
 Still not impressed? You might want to read [this blog post by Guillaume Dehaene](https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html), which explains why **"Quarto is better"** for modern academic workflows.
 
-> *Why not just use Overleaf?*  
+### Why not just use Overleaf?
 
 - While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on internet connection, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
 - Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
@@ -24,7 +24,7 @@ Still not impressed? You might want to read [this blog post by Guillaume Dehaene
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF"/>
 </p>
 
-### Where do I start?
+## Where do I start?
 
 > *"Talk is cheap. Show me the code."*  
 > — **Linus Torvalds**
@@ -79,7 +79,7 @@ You start by setting up a few tools on your system:
 You also see an `output` directory but it is empty. Why? Because the output paper is created locally on your computer.
 
 
-### How do I create the output?
+### How do I create the template output?
 
 Assuming that you have database access, Python, VS Code, Quarto, and `make` installed, this should be relatively straightforward. Refer to the setup instructions in the section [above](#where-do-i-start).
 
@@ -122,7 +122,7 @@ To start a new reproducible thesis project, follow these steps:
 3. Over time, you can fork this repository and customize it to develop a personalized template that fits your workflow and preferences.
 
 
-### Licensing
+## Licensing
 
 This project utilizes the template used in collaborative research center [TRR 266 Accounting for Transparency](https://accounting-for-transparency.de).
 
@@ -132,7 +132,7 @@ The repository is licensed under the MIT license. I would like to give the follo
 This repository was built based on the ['treat' template for reproducible research](https://github.com/trr266/treat).
 ```
 
-### References
+## References
 
 :bulb: If you’re new to collaborative workflows for scientific computing, here are some helpful texts:
 
