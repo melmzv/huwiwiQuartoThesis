@@ -6,6 +6,8 @@ This repository is a modular Quarto + LaTeX template for empirical theses at HU 
 
 Traditional workflows can be fragmented and hard to reproduce. Based on the TRR 266 TREAT template, this project combines Quarto for rendering, Python for data processing, and LaTeX for typesetting in one seamless framework - so you can focus on research rather than the technical details of formatting and data management.
 
+This template also showcases a complete example using the public [Gapminder](https://www.gapminder.org/) dataset: from pulling and preparing the data, to computing summary statistics and generating plots, all the way through to a fully rendered PDF. Use it as a blueprint for your own reproducible empirical thesis.
+
 ## Why use Quarto?
 
 Quarto lets you embed code, plots, tables, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows, which often require separate tools and manual steps to embed code results.
