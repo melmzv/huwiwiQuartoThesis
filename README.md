@@ -8,17 +8,17 @@ Traditional workflows can be fragmented and hard to reproduce. Based on the TRR 
 
 ## Why use Quarto?
 
-Quarto enables seamless integration of code, narrative, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows. Unlike LaTeX, which often requires separate tools and manual steps to embed code results, Quarto allows you to combine Python or R code, plots, regression tables, and formatted text in one source.
+Quarto lets you embed code, plots, tables, and output in a single document, making it a powerful alternative to traditional LaTeX-only workflows, which often require separate tools and manual steps to embed code results.
 
-This makes it ideal for empirical research where transparency, version control, and automation are essential, ensuring that your analysis is fully transparent and reproduciblef - from raw data to final PDF.
+This makes it ideal for empirical research where transparency, version control, and automation are essential, ensuring that your analysis is fully transparent and reproducible - from raw data to final PDF.
 
 Still not impressed? You might want to read [this blog post by Guillaume Dehaene](https://www.guillaumedehaene.com/posts/2024/03/quarto_is_better.html), which explains why **"Quarto is better"** for modern academic workflows.
 
 ### Why not just use Overleaf?
 
-- While Overleaf is a convenient cloud-based platform with Git integration and real-time collaboration, it is still limited by its reliance on internet connection, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
-- Plus, Zotero integration-necessary for managing references—is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
-- Quarto, on the other hand, allows you to work offline, ensuring that your research is always accessible.
+- While Overleaf is a convenient cloud-based platform, it is still limited by its reliance on internet connection, and its servers can occasionally experience downtime [quite frequently](https://status.overleaf.com/). :zap:
+- Plus, Zotero integration - necessary for managing references - is only available for **premium users**. And let’s be honest: we’d rather not pay for something we can do better locally. :money_with_wings:
+- Quarto, on the other hand, allows you to work offline - ensuring your research is always accessible - and integrates with Git for full version control, so if your laptop breaks, your work is safe.
 
 <p align="center">
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExemdyZWZiM2J5YnhxYXVmdmlwdmxpbGZnMHdyNXhjOGlkcTRydGRncSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT3i1kd2xAVSKslyh2/giphy.gif" alt="Centered GIF"/>
@@ -52,7 +52,7 @@ You start by setting up a few tools on your system:
 
 - `config`: This directory holds configuration files that are being called by the program scripts in the `code` directory. We try to keep the configurations separate from the code to make it easier to adjust the workflow to your needs. In this project, `pull_data_cfg.yaml` file outlines the variables and settings needed to extract the necessary data from the Gapminder database. The `prepare_data_cfg.yaml` file specifies the configurations for preprocessing and cleaning the data before analysis, ensuring consistency and accuracy in the dataset and following the paper filtration requirements. The `do_analysis_cfg.yaml` file contains parameters and settings for performing the final analysis on the extracted earnings data.
 
-- `code`: This directory holds program scripts used to pull data from Gapminder directly using python, prepare the data, run the analysis and create the output files (a replicated (pickle) output). Using pickle instead of Excel is more preferable as it is a more Pythonic data format, enabling faster read and write operations, preserving data types more accurately, and providing better compatibility with Python data structures and libraries. 
+- `code`: This directory holds program scripts used to pull data from Gapminder directly using python, prepare the data, run the analysis and create the output files. Using pickle instead of Excel/CSV for output files is more preferable as it is a more Pythonic data format, enabling faster read and write operations, preserving data types more accurately, and providing better compatibility with Python data structures and libraries. 
 <p align="center">
   <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*eFuMBvt4HtOK1YFb-SQ2KA.png" alt="Pickling process illustration" width="400">
 </p>
