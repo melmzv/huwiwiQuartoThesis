@@ -1,5 +1,6 @@
 # A reproducible Quarto-based template for thesis at HU Berlin’s School of Business and Economics
-
+![Views Counter](https://views-counter.vercel.app/badge?pageId=huwiwiQuartoThesis&leftColor=000000&rightColor=05db40&type=total&label=Total&style=none)
+![Views Counter](https://views-counter.vercel.app/badge?pageId=huwiwiQuartoThesis&leftColor=778899&rightColor=663399&type=unique&label=unique&style=none)
 ## Why use this template?
 
 This repository is a modular Quarto + LaTeX template for empirical theses at HU Berlin’s Institute of Accounting & Auditing and Finance Group. The template complies with the [WiWi faculty](https://www.wiwi.hu-berlin.de/de/studium/rund-um-das-studium/sb/leitfaden.pdf/@@download/file/Leitfaden.pdf) and [Institute guidelines](https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp/teaching/guidelines_mt_aug2024.pdf). Simply clone and render template! :sparkles:
